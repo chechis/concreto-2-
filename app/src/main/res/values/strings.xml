@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string-array name="spinner_elemento">
+        <item>Cimientos, vigas, paredes y columnas 10 cm</item>
+        <item>Pavimentos y losas     8 cm</item>
+        <item>Concreto masivo      5 cm</item>
+
+    </string-array>
+
+    <string-array name="spinner_factor">
+        <item>Excelente (25 kg/cm2)</item>
+        <item>Muy bueno (30 kg/cm2)</item>
+        <item>Bueno (35 kg/cm2)</item>
+        <item>Aceptable (40 kg/cm2)</item>
+        <item>Pobre (50 kg/cm2)</item>
+        <item>Sin factor (0 kg/cm2)</item>
+    </string-array>
+
+    <string-array name="spinner_tmn">
+        <item>3/8"</item>
+        <item>1/2"</item>
+        <item>3/4"</item>
+        <item>1"</item>
+        <item>1  1/2"</item>
+    </string-array>
+</resources>
