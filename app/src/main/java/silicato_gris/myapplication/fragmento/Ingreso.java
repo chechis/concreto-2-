@@ -99,20 +99,18 @@ public class Ingreso extends Fragment {
                     tmn = Concreto.Tmn.tresOctavos;
                     break;
                 case 1:
-                    factor = Concreto.Factor.treinta;
+                    tmn = Concreto.Tmn.media;
                     break;
                 case 2:
-                    factor = Concreto.Factor.treintaYCinco;
+                    tmn = Concreto.Tmn.tresCuartos;
                     break;
                 case 3:
-                    factor = Concreto.Factor.cuarenta;
+                    tmn = Concreto.Tmn.una;
                     break;
                 case 4:
-                    factor = Concreto.Factor.cincuenta;
+                    tmn = Concreto.Tmn.unaYMedia;
                     break;
-                case 5:
-                    factor = Concreto.Factor.cero;
-                    break;
+
             }
 
         }
