@@ -57,7 +57,7 @@
                     android:text="Factor de seguridad"/>
 
                 <Spinner
-                    android:id="@+id/spinner_asignatura"
+                    android:id="@+id/spinner_factor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -71,7 +71,7 @@
                     android:text="Elemento estructural"/>
 
                 <Spinner
-                    android:id="@+id/spinner_estudiante"
+                    android:id="@+id/spinner_elemento"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
