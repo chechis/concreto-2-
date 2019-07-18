@@ -1,6 +1,8 @@
 package silicato_gris.myapplication.fragmento;
 
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.Nullable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -14,10 +16,13 @@ import android.widget.Spinner;
 
 import silicato_gris.myapplication.R;
 import silicato_gris.myapplication.apoyo.Concreto;
+import silicato_gris.myapplication.apoyo.almacenamiento.BaseDatos;
+import silicato_gris.myapplication.apoyo.almacenamiento.Servicio;
 
 public class Ingreso extends Fragment {
 
-    private TextInputLayout editResistencia, editPesoConcreto;
+    private TextInputLayout editResistencia, editPesoConcreto, editPesoFinoSuelto,
+            editPesoFinoComp, editPesoGruesoSuelto, editPesoGruesoCompac;
     private Spinner spnFactor, spnElemento, spnTMN;
 
 
@@ -34,6 +39,11 @@ public class Ingreso extends Fragment {
 
         editResistencia = (TextInputLayout) view.findViewById(R.id.edit_resistencia);
         editPesoConcreto = (TextInputLayout) view.findViewById(R.id.edit_peso_concreto);
+        editPesoFinoSuelto = (TextInputLayout) view.findViewById(R.id.edit_peso_fino_suelto);
+        editPesoFinoComp = (TextInputLayout) view.findViewById(R.id.edit_peso_fino_compactado);
+        editPesoGruesoSuelto = (TextInputLayout) view.findViewById(R.id.edit_peso_grueso_suelto);
+        editPesoGruesoCompac = (TextInputLayout) view.findViewById(R.id.edit_peso_grueso_compactado);
+
         spnFactor = (Spinner) view.findViewById(R.id.spinner_factor);
         spnElemento = (Spinner) view.findViewById(R.id.spinner_elemento);
         spnTMN = (Spinner) view.findViewById(R.id.spinner_tmn);
@@ -53,10 +63,16 @@ public class Ingreso extends Fragment {
 
     private void agregarMezcla (){
 
+        Context context = getContext();
+
         boolean login = true;
         if (editResistencia !=null && editPesoConcreto != null){
             int resistencia = Integer.parseInt(editResistencia.getEditText().getText().toString());
-            int peso = Integer.parseInt(editPesoConcreto.getEditText().getText().toString());
+            int pesoConcreto = Integer.parseInt(editPesoConcreto.getEditText().getText().toString());
+            int pesoFinoSuelto = Integer.parseInt(editPesoFinoSuelto.getEditText().getText().toString());
+            int pesoFinoCompac = Integer.parseInt(editPesoFinoComp.getEditText().getText().toString());
+            int pesoGruesoSuelto = Integer.parseInt(editPesoGruesoSuelto.getEditText().getText().toString());
+            int pesoGruesoCompac = Integer.parseInt(editPesoGruesoCompac.getEditText().getText().toString());
 
             Concreto.Factor factor = Concreto.Factor.veinticinco;
             switch (spnFactor.getSelectedItemPosition()){
@@ -113,7 +129,17 @@ public class Ingreso extends Fragment {
 
             }
 
+            BaseDatos baseDatos = new BaseDatos(getContext());
+
+            SQLiteDatabase sq = baseDatos.getWritableDatabase();
+            Servicio servicio = new Servicio("resistencia", context);
+            servicio.guardarDatos();
+
+
         }
+
+
+
     }
 
     @Override
