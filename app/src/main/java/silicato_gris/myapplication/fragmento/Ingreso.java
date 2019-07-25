@@ -25,6 +25,8 @@ public class Ingreso extends Fragment {
             editPesoFinoComp, editPesoGruesoSuelto, editPesoGruesoCompac;
     private Spinner spnFactor, spnElemento, spnTMN;
 
+    int tmn, asentamiento, factor;
+
 
     @Nullable
     @Override
@@ -54,7 +56,7 @@ public class Ingreso extends Fragment {
             @Override
             public void onClick(View view) {
 
-
+                agregarMezcla();
 
             }
         });
@@ -64,67 +66,67 @@ public class Ingreso extends Fragment {
     private void agregarMezcla (){
 
         Context context = getContext();
+        Concreto concreto = new Concreto();
 
         boolean login = true;
         if (editResistencia !=null && editPesoConcreto != null){
-            int resistencia = Integer.parseInt(editResistencia.getEditText().getText().toString());
+            double resistencia = Integer.parseInt(editResistencia.getEditText().getText().toString());
             int pesoConcreto = Integer.parseInt(editPesoConcreto.getEditText().getText().toString());
             int pesoFinoSuelto = Integer.parseInt(editPesoFinoSuelto.getEditText().getText().toString());
             int pesoFinoCompac = Integer.parseInt(editPesoFinoComp.getEditText().getText().toString());
             int pesoGruesoSuelto = Integer.parseInt(editPesoGruesoSuelto.getEditText().getText().toString());
             int pesoGruesoCompac = Integer.parseInt(editPesoGruesoCompac.getEditText().getText().toString());
 
-            Concreto.Factor factor = Concreto.Factor.veinticinco;
             switch (spnFactor.getSelectedItemPosition()){
                 case 0:
-                    factor = Concreto.Factor.veinticinco;
+                    factor = 25;
                     break;
                 case 1:
-                    factor = Concreto.Factor.treinta;
+                    factor = 30;
                     break;
                 case 2:
-                    factor = Concreto.Factor.treintaYCinco;
+                    factor = 35;
                     break;
                 case 3:
-                    factor = Concreto.Factor.cuarenta;
+                    factor = 40;
                     break;
                 case 4:
-                    factor = Concreto.Factor.cincuenta;
+                    factor = 50;
                     break;
                 case 5:
-                    factor = Concreto.Factor.cero;
+                    factor = 0;
                     break;
             }
 
-            Concreto.Asentamiento asentamiento = Concreto.Asentamiento.diez;
+
             switch (spnElemento.getSelectedItemPosition()){
                 case 0:
-                    asentamiento = Concreto.Asentamiento.diez;
+                    asentamiento = 10;
                     break;
                 case 1:
-                    asentamiento = Concreto.Asentamiento.ocho;
+                    asentamiento = 8;
                     break;
                 case 2:
-                    asentamiento = Concreto.Asentamiento.cinco;
+                    asentamiento = 5;
                     break;
             }
 
-            Concreto.Tmn tmn = Concreto.Tmn.tresOctavos;
+
             switch (spnFactor.getSelectedItemPosition()){
                 case 0:
-                    tmn = Concreto.Tmn.tresOctavos;
+                    tmn = 1;
                     break;
                 case 1:
-                    tmn = Concreto.Tmn.media;
+                    tmn = 2;
                     break;
                 case 2:
-                    tmn = Concreto.Tmn.tresCuartos;
+                    tmn = 3;
                     break;
                 case 3:
-                    tmn = Concreto.Tmn.una;
+                    tmn = 4;
                     break;
                 case 4:
-                    tmn = Concreto.Tmn.unaYMedia;
+                    tmn = 5;
                     break;
 
             }
@@ -133,14 +135,13 @@ public class Ingreso extends Fragment {
 
             SQLiteDatabase sq = baseDatos.getWritableDatabase();
             Servicio servicio = new Servicio("resistencia", context);
-            servicio.guardarDatos();
-
-
+            servicio.guardarDatos(resistencia,factor,asentamiento,tmn,pesoConcreto,pesoFinoSuelto,pesoFinoCompac,pesoGruesoSuelto,pesoGruesoCompac,baseDatos,context);
+            sq.close();
         }
 
-
-
     }
+
+  //colocar un metodo para hacer calculos y ponerlo arriba
 
     @Override
     public void onResume() {

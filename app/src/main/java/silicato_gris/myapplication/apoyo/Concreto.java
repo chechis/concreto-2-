@@ -2,68 +2,58 @@ package silicato_gris.myapplication.apoyo;
 
 public class Concreto {
 
-    public enum Tmn {
-        tresOctavos, media, tresCuartos, una, unaYMedia
 
-    }
-    public enum Asentamiento{
-        cinco, ocho, diez
-    }
-
-    public enum Factor{
-        cero, veinticinco, treinta, treintaYCinco, cuarenta, cincuenta
-    }
 
     private int id;
-    private int resistencia;
-    private Factor factor;
+    private double resistencia;
     private int elemento;
-    private Tmn tmn;
     private int pesoConcreto;
     private int pesoSueltoFino;
     private int pesoCompactadoFino;
     private int pesoSueltoGrueso;
     private int pesoCompactadoGrueso;
     private int aguaCemento;
-    private Asentamiento asentamiento;
     private int propUnitaria;
     private int propVol;
 
+    private int tmnNum;
+    private int asentamientoNum;
+    private int factorNum;
 
     public Concreto() {
     }
 
-    public Concreto(int id, int resistencia, Factor factor, int elemento, Tmn tmn, int pesoConcreto, int pesoSueltoFino, int pesoCompactadoFino, int pesoSueltoGrueso, int pesoCompactadoGrueso, int aguaCemento, Asentamiento asentamiento, int propUnitaria, int propVol) {
-        this.id = id;
+    public Concreto(double resistencia, int elemento, int pesoConcreto, int pesoSueltoFino, int pesoCompactadoFino, int pesoSueltoGrueso, int pesoCompactadoGrueso, int aguaCemento, int propUnitaria, int propVol, int tmnNum, int asentamientoNum, int factorNum) {
         this.resistencia = resistencia;
-        this.factor = factor;
         this.elemento = elemento;
-        this.tmn = tmn;
         this.pesoConcreto = pesoConcreto;
         this.pesoSueltoFino = pesoSueltoFino;
         this.pesoCompactadoFino = pesoCompactadoFino;
         this.pesoSueltoGrueso = pesoSueltoGrueso;
         this.pesoCompactadoGrueso = pesoCompactadoGrueso;
         this.aguaCemento = aguaCemento;
-        this.asentamiento = asentamiento;
         this.propUnitaria = propUnitaria;
         this.propVol = propVol;
+        this.tmnNum = tmnNum;
+        this.asentamientoNum = asentamientoNum;
+        this.factorNum = factorNum;
     }
 
-    public Concreto(int resistencia, Factor factor, int elemento, Tmn tmn, int pesoConcreto, int pesoSueltoFino, int pesoCompactadoFino, int pesoSueltoGrueso, int pesoCompactadoGrueso, int aguaCemento, Asentamiento asentamiento, int propUnitaria, int propVol) {
+    public Concreto(int id, double resistencia, int elemento, int pesoConcreto, int pesoSueltoFino, int pesoCompactadoFino, int pesoSueltoGrueso, int pesoCompactadoGrueso, int aguaCemento, int propUnitaria, int propVol, int tmnNum, int asentamientoNum, int factorNum) {
+        this.id = id;
         this.resistencia = resistencia;
-        this.factor = factor;
         this.elemento = elemento;
-        this.tmn = tmn;
         this.pesoConcreto = pesoConcreto;
         this.pesoSueltoFino = pesoSueltoFino;
         this.pesoCompactadoFino = pesoCompactadoFino;
         this.pesoSueltoGrueso = pesoSueltoGrueso;
         this.pesoCompactadoGrueso = pesoCompactadoGrueso;
         this.aguaCemento = aguaCemento;
-        this.asentamiento = asentamiento;
         this.propUnitaria = propUnitaria;
         this.propVol = propVol;
+        this.tmnNum = tmnNum;
+        this.asentamientoNum = asentamientoNum;
+        this.factorNum = factorNum;
     }
 
     public int getId() {
@@ -74,20 +64,12 @@ public class Concreto {
         this.id = id;
     }
 
-    public int getResistencia() {
+    public double getResistencia() {
         return resistencia;
     }
 
-    public void setResistencia(int resistencia) {
+    public void setResistencia(double resistencia) {
         this.resistencia = resistencia;
-    }
-
-    public Factor getFactor() {
-        return factor;
-    }
-
-    public void setFactor(Factor factor) {
-        this.factor = factor;
     }
 
     public int getElemento() {
@@ -96,14 +78,6 @@ public class Concreto {
 
     public void setElemento(int elemento) {
         this.elemento = elemento;
-    }
-
-    public Tmn getTmn() {
-        return tmn;
-    }
-
-    public void setTmn(Tmn tmn) {
-        this.tmn = tmn;
     }
 
     public int getPesoConcreto() {
@@ -154,14 +128,6 @@ public class Concreto {
         this.aguaCemento = aguaCemento;
     }
 
-    public Asentamiento getAsentamiento() {
-        return asentamiento;
-    }
-
-    public void setAsentamiento(Asentamiento asentamiento) {
-        this.asentamiento = asentamiento;
-    }
-
     public int getPropUnitaria() {
         return propUnitaria;
     }
@@ -176,5 +142,29 @@ public class Concreto {
 
     public void setPropVol(int propVol) {
         this.propVol = propVol;
+    }
+
+    public int getTmnNum() {
+        return tmnNum;
+    }
+
+    public void setTmnNum(int tmnNum) {
+        this.tmnNum = tmnNum;
+    }
+
+    public int getAsentamientoNum() {
+        return asentamientoNum;
+    }
+
+    public void setAsentamientoNum(int asentamientoNum) {
+        this.asentamientoNum = asentamientoNum;
+    }
+
+    public int getFactorNum() {
+        return factorNum;
+    }
+
+    public void setFactorNum(int factorNum) {
+        this.factorNum = factorNum;
     }
 }

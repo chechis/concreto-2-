@@ -18,9 +18,9 @@ public class Servicio {
         this.context = context;
     }
 
-    public void guardarDatos (String resistencia, String factor, String elemento, String tmn, String pesoConcreto,
-                              String pesoSueltoFino, String pesoCompactadoFino, String pesoSueltoGrueso,
-                              String pesoCompactadoGrueso, BaseDatos baseDatos, Context activity){
+    public void guardarDatos (double resistencia, int factor, int elemento, int tmn, int pesoConcreto,
+                              int pesoSueltoFino, int pesoCompactadoFino, int pesoSueltoGrueso,
+                              int pesoCompactadoGrueso, BaseDatos baseDatos, Context activity){
 
         SQLiteDatabase sq = baseDatos.getWritableDatabase();
         ContentValues content = new ContentValues();
@@ -39,9 +39,9 @@ public class Servicio {
         Toast.makeText(activity, "Base de datos almacenada", Toast.LENGTH_SHORT).show();
     }
 
-    public void modificarDatos (int id, String resistencia, String factor, String elemento, String tmn, String pesoConcreto,
-                              String pesoSueltoFino, String pesoCompactadoFino, String pesoSueltoGrueso,
-                              String pesoCompactadoGrueso, BaseDatos baseDatos, Context activity){
+    public void modificarDatos (int id, double resistencia, int factor, int elemento, int tmn, int pesoConcreto,
+                                int pesoSueltoFino, int pesoCompactadoFino, int pesoSueltoGrueso,
+                                int pesoCompactadoGrueso, BaseDatos baseDatos, Context activity){
 
         SQLiteDatabase sq = baseDatos.getWritableDatabase();
         ContentValues content = new ContentValues();
