@@ -8,16 +8,17 @@ public class Tablas {
 
         int asentamiento;
         int tmn;
-        int fc;
 
-    public Tablas(int asentamiento, int tmn, int fc) {
+
+        public Tablas(int asentamiento, int tmn) {
         this.asentamiento = asentamiento;
         this.tmn = tmn;
-        this.fc = fc;
-    }
+        }
 
-    double cantidadArenaArreglo [] = new double[5];
+        double cantidadArenaArreglo [] = new double[5];
         int aguaArreglo [][]= new int[3][5];
+
+
 
         public int tablaAgua (int asentamiento, int tmn){
 

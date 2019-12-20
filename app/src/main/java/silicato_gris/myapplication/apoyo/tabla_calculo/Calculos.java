@@ -8,7 +8,7 @@ public class Calculos {
 
         double resistencia = 1.1497*(Math.exp(-0.0025*fc));
 
-        return (double)(Math.round(resistencia*100)/100);
+        return resistencia;
     }
 
 

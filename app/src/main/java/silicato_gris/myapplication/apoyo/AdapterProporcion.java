@@ -74,7 +74,7 @@ public class AdapterProporcion extends RecyclerView.Adapter<AdapterProporcion.Co
         Concreto concreto = concretos.get(position);
 
         holder.txtAguaCemento.setText("A/C   "+ concreto.getAguaCemento());
-        holder.txtAsentamiento.setText("Asentamiento    "+ concreto.getAsentamiento());
+        holder.txtAsentamiento.setText("Asentamiento    "+ concreto.getAsentamientoNum());
         holder.txtPropUnitaria.setText("Proporción Unitaria kg/m3    "+concreto.getPropUnitaria());
         holder.txtPropVol.setText("Proporción Volumetrica    "+concreto.getPropVol());
     }

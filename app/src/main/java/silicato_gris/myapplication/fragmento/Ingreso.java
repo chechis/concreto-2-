@@ -2,6 +2,7 @@ package silicato_gris.myapplication.fragmento;
 
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.Nullable;
 import android.os.Bundle;
@@ -13,11 +14,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import silicato_gris.myapplication.R;
 import silicato_gris.myapplication.apoyo.Concreto;
 import silicato_gris.myapplication.apoyo.almacenamiento.BaseDatos;
+import silicato_gris.myapplication.apoyo.almacenamiento.Estructura;
 import silicato_gris.myapplication.apoyo.almacenamiento.Servicio;
+import silicato_gris.myapplication.apoyo.tabla_calculo.Calculos;
+import silicato_gris.myapplication.apoyo.tabla_calculo.Tablas;
 
 public class Ingreso extends Fragment {
 
@@ -61,6 +66,58 @@ public class Ingreso extends Fragment {
             }
         });
 
+        FloatingActionButton prueba =  (FloatingActionButton) view.findViewById(R.id.ingreso_btn);
+        prueba.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                leerBase();
+            }
+        });
+
+    }
+
+    private void leerBase() {
+        Context context = getContext();
+        BaseDatos baseDatos = new BaseDatos(getContext());
+        SQLiteDatabase myDatabase;
+
+
+        myDatabase = baseDatos.getWritableDatabase();
+
+        Cursor cursor = myDatabase.rawQuery("SELECT * FROM "+ Estructura.EstructuraBase.TABLE_NAME+";", null);
+        //listaTarea.clear();
+        if (cursor.moveToFirst()){
+            do {
+                int id = cursor.getInt(cursor.getColumnIndex(Estructura.EstructuraBase.COLUMN_NAME_ID));
+                Double resistencia = cursor.getDouble(cursor.getColumnIndex(Estructura.EstructuraBase.COLUMN_NAME_RESISTENCIA));
+                int factor = cursor.getInt(cursor.getColumnIndex(Estructura.EstructuraBase.COLUMN_NAME_FACTOR));
+                int elemento = cursor.getInt(cursor.getColumnIndex(Estructura.EstructuraBase.COLUMN_NAME_ELEMENTO));
+                int tmn = cursor.getInt(cursor.getColumnIndex(Estructura.EstructuraBase.COLUMN_NAME_TMN));
+                int pesoConcreto = cursor.getInt(cursor.getColumnIndex(Estructura.EstructuraBase.COLUMN_NAME_PESO_CONCRETO));
+                int pesoSueltoFino = cursor.getInt(cursor.getColumnIndex(Estructura.EstructuraBase.COLUMN_NAME_PESO_SUELTO_FINO));
+                int pesoCompactadoFino = cursor.getInt(cursor.getColumnIndex(Estructura.EstructuraBase.COLUMN_NAME_PESO_COMPACTADO_FINO));
+                int pesoSueltoGrueso = cursor.getInt(cursor.getColumnIndex(Estructura.EstructuraBase.COLUMN_NAME_PESO_SUELTO_GRUESO));
+                int pesoCompactadoGrueso = cursor.getInt(cursor.getColumnIndex(Estructura.EstructuraBase.COLUMN_NAME_PESO_COMPACTADO_GRUESO));
+
+                /*Toast.makeText(context, "id"+id+ " resistencia"+resistencia+ "  factor"+factor+ "  elemento"+elemento+"  tmn"+tmn+
+                                "  peso Concreto"+pesoConcreto+"  pesos Finos "+pesoSueltoFino+pesoCompactadoFino+ "pesos Gruesos"+pesoSueltoGrueso+pesoCompactadoGrueso, Toast.LENGTH_LONG).show();
+*/
+
+                Tablas tablas = new Tablas(asentamiento, tmn);
+                Calculos calculos = new Calculos();
+
+                Double ac = calculos.relacionAC(resistencia);
+
+                int cantidadAgua = tablas.tablaAgua(asentamiento, tmn);
+                Double cantidadArena = tablas.tablaArena(tmn);
+
+                Toast.makeText(context, "Agua lt"+cantidadAgua+"  Cantidad de arena"+cantidadArena+" Rel AC"+ac+resistencia, Toast.LENGTH_LONG).show();
+
+               // listaTarea.add(new Tarea(id, nombreTarea, estudiante, asignatura, nota));
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+
     }
 
     private void agregarMezcla (){
@@ -101,32 +158,32 @@ public class Ingreso extends Fragment {
 
             switch (spnElemento.getSelectedItemPosition()){
                 case 0:
-                    asentamiento = 10;
+                    asentamiento = 2;
                     break;
                 case 1:
-                    asentamiento = 8;
+                    asentamiento = 1;
                     break;
                 case 2:
-                    asentamiento = 5;
+                    asentamiento = 0;
                     break;
             }
 
 
-            switch (spnFactor.getSelectedItemPosition()){
+            switch (spnTMN.getSelectedItemPosition()){
                 case 0:
-                    tmn = 1;
+                    tmn = 0;
                     break;
                 case 1:
-                    tmn = 2;
+                    tmn = 1;
                     break;
                 case 2:
-                    tmn = 3;
+                    tmn = 2;
                     break;
                 case 3:
-                    tmn = 4;
+                    tmn = 3;
                     break;
                 case 4:
-                    tmn = 5;
+                    tmn = 4;
                     break;
 
             }

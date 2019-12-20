@@ -25,15 +25,15 @@ public class Servicio {
         SQLiteDatabase sq = baseDatos.getWritableDatabase();
         ContentValues content = new ContentValues();
 
-        content.put(Estructura.EstructuraBase.COLUMN_NAME_RESISTENCIA, resistencia);
-        content.put(Estructura.EstructuraBase.COLUMN_NAME_FACTOR, factor);
-        content.put(Estructura.EstructuraBase.COLUMN_NAME_ELEMENTO, elemento);
-        content.put(Estructura.EstructuraBase.COLUMN_NAME_TMN, tmn);
-        content.put(Estructura.EstructuraBase.COLUMN_NAME_PESO_CONCRETO, pesoConcreto);
-        content.put(Estructura.EstructuraBase.COLUMN_NAME_PESO_SUELTO_FINO, pesoSueltoFino);
-        content.put(Estructura.EstructuraBase.COLUMN_NAME_PESO_COMPACTADO_FINO, pesoCompactadoFino);
-        content.put(Estructura.EstructuraBase.COLUMN_NAME_PESO_SUELTO_GRUESO, pesoSueltoGrueso);
-        content.put(Estructura.EstructuraBase.COLUMN_NAME_PESO_COMPACTADO_GRUESO, pesoCompactadoGrueso);
+        content.put(Estructura.EstructuraBase.COLUMN_NAME_RESISTENCIA, String.valueOf(resistencia));
+        content.put(Estructura.EstructuraBase.COLUMN_NAME_FACTOR, Integer.toString(factor));
+        content.put(Estructura.EstructuraBase.COLUMN_NAME_ELEMENTO, Integer.toString(elemento));
+        content.put(Estructura.EstructuraBase.COLUMN_NAME_TMN, Integer.toString(tmn));
+        content.put(Estructura.EstructuraBase.COLUMN_NAME_PESO_CONCRETO, Integer.toString(pesoConcreto));
+        content.put(Estructura.EstructuraBase.COLUMN_NAME_PESO_SUELTO_FINO, Integer.toString(pesoSueltoFino));
+        content.put(Estructura.EstructuraBase.COLUMN_NAME_PESO_COMPACTADO_FINO, Integer.toString(pesoCompactadoFino));
+        content.put(Estructura.EstructuraBase.COLUMN_NAME_PESO_SUELTO_GRUESO, Integer.toString(pesoSueltoGrueso));
+        content.put(Estructura.EstructuraBase.COLUMN_NAME_PESO_COMPACTADO_GRUESO, Integer.toString(pesoCompactadoGrueso));
 
         sq.insert(Estructura.EstructuraBase.TABLE_NAME, null, content);
         Toast.makeText(activity, "Base de datos almacenada", Toast.LENGTH_SHORT).show();
