@@ -18,7 +18,7 @@ public class Servicio {
         this.context = context;
     }
 
-    public void guardarDatos (double resistencia, int factor, int elemento, int tmn, int pesoConcreto,
+    public void guardarDatos (String nombreProyecto, double resistencia, int factor, int elemento, int tmn, int pesoConcreto,
                               int pesoSueltoFino, int pesoCompactadoFino, int pesoSueltoGrueso,
                               int pesoCompactadoGrueso, double relAc, double propUniCemento, double propUniAgregados,
                               double propUniArena, double propUniPiedrin, double propUniAgua, double propVolArena,
@@ -29,6 +29,7 @@ public class Servicio {
         SQLiteDatabase sq = baseDatos.getWritableDatabase();
         ContentValues content = new ContentValues();
 
+        content.put(Estructura.EstructuraBase.COLUMN_NAME_PROYECTO, nombreProyecto);
         content.put(Estructura.EstructuraBase.COLUMN_NAME_RESISTENCIA, String.valueOf(resistencia));
         content.put(Estructura.EstructuraBase.COLUMN_NAME_FACTOR, Integer.toString(factor));
         content.put(Estructura.EstructuraBase.COLUMN_NAME_ELEMENTO, Integer.toString(elemento));

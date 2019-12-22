@@ -10,6 +10,7 @@ public class Estructura {
     public static abstract class EstructuraBase implements BaseColumns{
         public static final String TABLE_NAME = "Proporcion";
         public static final String COLUMN_NAME_ID ="Id";
+        public static final String COLUMN_NAME_PROYECTO = "nombre_proyecto";
         public static final String COLUMN_NAME_RESISTENCIA = "resistencia";
         public static final String COLUMN_NAME_FACTOR = "factor";
         public static final String COLUMN_NAME_ELEMENTO = "elemento";
