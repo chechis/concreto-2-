@@ -40,7 +40,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="kg/cm2"
-                    android:inputType="numberDecimal"/>
+                    android:inputType="numberDecimal"
+                    android:text="300"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -62,7 +63,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Volumen de concreto"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"
+                    android:text="2.5"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -139,7 +141,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="kg/m3"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:text="2310"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -161,7 +164,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Suelto en kg/m3"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:text="1200"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -176,7 +180,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Compactado en kg/m3"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:text="1320"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -198,7 +203,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Suelto en kg/m3"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:text="1220"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -214,7 +220,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Compactado en kg/m3"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:text="1400"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -235,15 +242,6 @@
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="20dp"
                 android:src="@drawable/ic_navigate_next_black_24dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="50dp"
-                android:text="informacion"
-                android:id="@+id/prueba"/>
 
         </LinearLayout>
 

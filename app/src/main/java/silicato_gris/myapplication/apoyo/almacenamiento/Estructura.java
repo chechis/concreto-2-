@@ -19,6 +19,22 @@ public class Estructura {
         public static final String COLUMN_NAME_PESO_COMPACTADO_FINO = "compactado_fino";
         public static final String COLUMN_NAME_PESO_SUELTO_GRUESO = "suelto_grueso";
         public static final String COLUMN_NAME_PESO_COMPACTADO_GRUESO = "compactado_grueso";
+        public static final String COLUMN_NAME_RELACION_AC = "relacion_ac";
+        public static final String COLUMN_NAME_PROP_UNITARIA_CEMENTO = "prop_unitaria_cemento";
+        public static final String COLUMN_NAME_PROP_UNITARIA_AGREGADOS = "prop_unitaria_agregados";
+        public static final String COLUMN_NAME_PROP_UNITARIA_ARENA = "prop_unitaria_arena";
+        public static final String COLUMN_NAME_PROP_UNITARIA_PIEDRIN = "prop_unitaria_piedrin";
+        public static final String COLUMN_NAME_PROP_UNITARIA_AGUA = "prop_unitaria_agua";
+        public static final String COLUMN_NAME_PROP_VOLUMETRICA_ARENA = "prop_volumetrica_arena";
+        public static final String COLUMN_NAME_PROP_VOLUMETRICA_PIEDRIN = "prop_volumetrica_piedrin";
+        public static final String COLUMN_NAME_COMPRAR_CEMENTO = "comprar_cemento";
+        public static final String COLUMN_NAME_COMPRAR_ARENA = "comprar_arena";
+        public static final String COLUMN_NAME_COMPRAR_PIEDRIN = "comprar_piedrin";
+        public static final String COLUMN_NAME_COMPRAR_AGUA = "comprar_agua";
+        public static final String COLUMN_NAME_COSTAL_ARENA = "costal_arena";
+        public static final String COLUMN_NAME_COSTAL_PIEDRIN = "costal_piedrin";
+        public static final String COLUMN_NAME_COSTAL_AGUA = "costal_agua";
+
 
     }
 

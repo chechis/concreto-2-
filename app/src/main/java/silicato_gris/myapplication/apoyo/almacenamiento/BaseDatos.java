@@ -20,9 +20,24 @@ public class BaseDatos extends SQLiteOpenHelper {
                     + Estructura.EstructuraBase.COLUMN_NAME_PESO_SUELTO_FINO + tipo + coma
                     + Estructura.EstructuraBase.COLUMN_NAME_PESO_COMPACTADO_FINO + tipo + coma
                     + Estructura.EstructuraBase.COLUMN_NAME_PESO_SUELTO_GRUESO + tipo + coma
-                    + Estructura.EstructuraBase.COLUMN_NAME_PESO_COMPACTADO_GRUESO + tipo + " )";
+                    + Estructura.EstructuraBase.COLUMN_NAME_PESO_COMPACTADO_GRUESO + tipo + coma
+                    + Estructura.EstructuraBase.COLUMN_NAME_RELACION_AC + tipo + coma
+                    + Estructura.EstructuraBase.COLUMN_NAME_PROP_UNITARIA_CEMENTO + tipo + coma
+                    + Estructura.EstructuraBase.COLUMN_NAME_PROP_UNITARIA_AGREGADOS + tipo + coma
+                    + Estructura.EstructuraBase.COLUMN_NAME_PROP_UNITARIA_ARENA + tipo + coma
+                    + Estructura.EstructuraBase.COLUMN_NAME_PROP_UNITARIA_PIEDRIN + tipo + coma
+                    + Estructura.EstructuraBase.COLUMN_NAME_PROP_UNITARIA_AGUA + tipo + coma
+                    + Estructura.EstructuraBase.COLUMN_NAME_PROP_VOLUMETRICA_ARENA + tipo + coma
+                    + Estructura.EstructuraBase.COLUMN_NAME_PROP_VOLUMETRICA_PIEDRIN + tipo + coma
+                    + Estructura.EstructuraBase.COLUMN_NAME_COMPRAR_CEMENTO + tipo + coma
+                    + Estructura.EstructuraBase.COLUMN_NAME_COMPRAR_ARENA + tipo + coma
+                    + Estructura.EstructuraBase.COLUMN_NAME_COMPRAR_PIEDRIN + tipo + coma
+                    + Estructura.EstructuraBase.COLUMN_NAME_COMPRAR_AGUA + tipo + coma
+                    + Estructura.EstructuraBase.COLUMN_NAME_COSTAL_ARENA + tipo + coma
+                    + Estructura.EstructuraBase.COLUMN_NAME_COSTAL_PIEDRIN + tipo + coma
+                    + Estructura.EstructuraBase.COLUMN_NAME_COSTAL_AGUA + tipo + " )";
 
-    public static final int DATABASE_VERSION = 2;
+    public static final int DATABASE_VERSION = 3;
     public static final String DATABASE_NAME = "Concreto.sqLite";
 
     private static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + Estructura.EstructuraBase.TABLE_NAME;

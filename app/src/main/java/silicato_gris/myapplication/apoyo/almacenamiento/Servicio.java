@@ -20,7 +20,11 @@ public class Servicio {
 
     public void guardarDatos (double resistencia, int factor, int elemento, int tmn, int pesoConcreto,
                               int pesoSueltoFino, int pesoCompactadoFino, int pesoSueltoGrueso,
-                              int pesoCompactadoGrueso, BaseDatos baseDatos, Context activity){
+                              int pesoCompactadoGrueso, double relAc, double propUniCemento, double propUniAgregados,
+                              double propUniArena, double propUniPiedrin, double propUniAgua, double propVolArena,
+                              double propVolPiedrin, double comprarCemento, double comprarArena, double comprarPiedrin,
+                              double comprarAgua, double costalArena, double costalPiedrin, double costalAgua,
+                              BaseDatos baseDatos, Context activity){
 
         SQLiteDatabase sq = baseDatos.getWritableDatabase();
         ContentValues content = new ContentValues();
@@ -34,6 +38,21 @@ public class Servicio {
         content.put(Estructura.EstructuraBase.COLUMN_NAME_PESO_COMPACTADO_FINO, Integer.toString(pesoCompactadoFino));
         content.put(Estructura.EstructuraBase.COLUMN_NAME_PESO_SUELTO_GRUESO, Integer.toString(pesoSueltoGrueso));
         content.put(Estructura.EstructuraBase.COLUMN_NAME_PESO_COMPACTADO_GRUESO, Integer.toString(pesoCompactadoGrueso));
+        content.put(Estructura.EstructuraBase.COLUMN_NAME_RELACION_AC, String.valueOf(relAc));
+        content.put(Estructura.EstructuraBase.COLUMN_NAME_PROP_UNITARIA_CEMENTO, String.valueOf(propUniCemento));
+        content.put(Estructura.EstructuraBase.COLUMN_NAME_PROP_UNITARIA_AGREGADOS, String.valueOf(propUniAgregados));
+        content.put(Estructura.EstructuraBase.COLUMN_NAME_PROP_UNITARIA_ARENA, String.valueOf(propUniArena));
+        content.put(Estructura.EstructuraBase.COLUMN_NAME_PROP_UNITARIA_PIEDRIN, String.valueOf(propUniPiedrin));
+        content.put(Estructura.EstructuraBase.COLUMN_NAME_PROP_UNITARIA_AGUA, String.valueOf(propUniAgua));
+        content.put(Estructura.EstructuraBase.COLUMN_NAME_PROP_VOLUMETRICA_ARENA, String.valueOf(propVolArena));
+        content.put(Estructura.EstructuraBase.COLUMN_NAME_PROP_VOLUMETRICA_PIEDRIN, String.valueOf(propVolPiedrin));
+        content.put(Estructura.EstructuraBase.COLUMN_NAME_COMPRAR_CEMENTO, String.valueOf(comprarCemento));
+        content.put(Estructura.EstructuraBase.COLUMN_NAME_COMPRAR_ARENA, String.valueOf(comprarArena));
+        content.put(Estructura.EstructuraBase.COLUMN_NAME_COMPRAR_PIEDRIN, String.valueOf(comprarPiedrin));
+        content.put(Estructura.EstructuraBase.COLUMN_NAME_COMPRAR_AGUA, String.valueOf(comprarAgua));
+        content.put(Estructura.EstructuraBase.COLUMN_NAME_COSTAL_ARENA, String.valueOf(costalArena));
+        content.put(Estructura.EstructuraBase.COLUMN_NAME_COSTAL_PIEDRIN, String.valueOf(costalPiedrin));
+        content.put(Estructura.EstructuraBase.COLUMN_NAME_COSTAL_AGUA, String.valueOf(costalAgua));
 
         sq.insert(Estructura.EstructuraBase.TABLE_NAME, null, content);
         Toast.makeText(activity, "Base de datos almacenada", Toast.LENGTH_SHORT).show();

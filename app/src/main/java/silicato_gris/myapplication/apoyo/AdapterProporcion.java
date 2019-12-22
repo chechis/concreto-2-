@@ -28,12 +28,12 @@ public class AdapterProporcion extends RecyclerView.Adapter<AdapterProporcion.Co
                                     
 
     public class ConcretoHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        TextView txtAguaCemento, txtAsentamiento, txtPropUnitaria, txtPropVol;
+        TextView txtResistencia, txtAsentamiento, txtPropUnitaria, txtPropVol;
         ImageButton btnEditar, btnBorrar;
 
         public ConcretoHolder (View itemView){
             super(itemView);
-            txtAguaCemento = (TextView) itemView.findViewById(R.id.txt_proporcion_ac);
+            txtResistencia = (TextView) itemView.findViewById(R.id.txt_resistencia);
             txtAsentamiento = (TextView) itemView.findViewById(R.id.txt_proporcion_asentamiento);
             txtPropUnitaria = (TextView) itemView.findViewById(R.id.txt_proporcion_unitaria);
             txtPropVol = (TextView) itemView.findViewById(R.id.txt_proporcion_volumetrica);
@@ -73,7 +73,7 @@ public class AdapterProporcion extends RecyclerView.Adapter<AdapterProporcion.Co
     public void onBindViewHolder(@NonNull AdapterProporcion.ConcretoHolder holder, int position) {
         Concreto concreto = concretos.get(position);
 
-        holder.txtAguaCemento.setText("A/C   "+ concreto.getAguaCemento());
+        holder.txtResistencia.setText("f'c   "+ concreto.getAguaCemento());
         holder.txtAsentamiento.setText("Asentamiento    "+ concreto.getAsentamientoNum());
         holder.txtPropUnitaria.setText("Proporción Unitaria kg/m3    "+concreto.getPropUnitaria());
         holder.txtPropVol.setText("Proporción Volumetrica    "+concreto.getPropVol());

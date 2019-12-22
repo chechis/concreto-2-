@@ -41,8 +41,6 @@ public class Ingreso extends Fragment {
             comprarAgua, costalArena, costalPiedrin, costalAgua;
 
 
-    TextView pruebaText;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -53,8 +51,6 @@ public class Ingreso extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        pruebaText = (TextView) view.findViewById(R.id.prueba);
 
         editResistencia = (TextInputLayout) view.findViewById(R.id.edit_resistencia);
         editPesoConcreto = (TextInputLayout) view.findViewById(R.id.edit_peso_concreto);
@@ -226,15 +222,15 @@ public class Ingreso extends Fragment {
             costalPiedrin = calculo.costalPiedrin(pesoGruesoSuelto, propVolPiedrin);
             costalAgua = calculo.costalAgua(relacionAC);
 
-            pruebaText.setText(relacionAC+"\n"+propUnitariaAgua+"\n"+propUnitariaCemento+"\n"+propUnitariaAgregados+"\n"
-                    +propUnitariaArena+"\n"+propUnitariaPiedrin+"\n"+propVolArena+"\n"+propVolPiedrin+"\n"+comprarCemento+"\n"+comprarArena+"\n"
-                    +comprarPiedrin+"\n"+comprarAgua+"\n"+costalArena+"\n"+costalPiedrin+"\n"+costalAgua+"\n");
-
             BaseDatos baseDatos = new BaseDatos(getContext());
 
             SQLiteDatabase sq = baseDatos.getWritableDatabase();
             Servicio servicio = new Servicio("resistencia", context);
-            servicio.guardarDatos(resistencia,factor,asentamiento,tmn,pesoConcreto,pesoFinoSuelto,pesoFinoCompac,pesoGruesoSuelto,pesoGruesoCompac,baseDatos,context);
+            servicio.guardarDatos(resistencia, factor, asentamiento, tmn, pesoConcreto, pesoFinoSuelto, pesoFinoCompac,
+                    pesoGruesoSuelto,pesoGruesoCompac,relacionAC, propUnitariaCemento, propUnitariaAgregados,
+                    propUnitariaArena, propUnitariaPiedrin, propUnitariaAgua, propVolArena, propVolPiedrin,
+                    comprarCemento, comprarArena, comprarPiedrin, comprarAgua, costalArena, costalPiedrin, costalAgua,
+                    baseDatos,context);
             sq.close();
         }
 
