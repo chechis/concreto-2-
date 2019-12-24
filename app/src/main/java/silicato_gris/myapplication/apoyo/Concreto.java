@@ -3,57 +3,41 @@ package silicato_gris.myapplication.apoyo;
 public class Concreto {
 
 
-
     private int id;
-    private double resistencia;
-    private int elemento;
-    private int pesoConcreto;
-    private int pesoSueltoFino;
-    private int pesoCompactadoFino;
-    private int pesoSueltoGrueso;
-    private int pesoCompactadoGrueso;
-    private int aguaCemento;
-    private int propUnitaria;
-    private int propVol;
+    private String nombreProyecto;
+    private String resistencia;
+    private String asentamiento;
+    private String tmn;
+    private String relAC;
+    private String propUniCemento;
+    private String propUniFino;
+    private String propUniGrueso;
+    private String propUniAgua;
+    private String propVolFino;
+    private String propVolGrueso;
+    private String costalFino;
+    private String costalGrueso;
+    private String costalAgua;
 
-    private int tmnNum;
-    private int asentamientoNum;
-    private int factorNum;
 
-    public Concreto() {
-    }
-
-    public Concreto(double resistencia, int elemento, int pesoConcreto, int pesoSueltoFino, int pesoCompactadoFino, int pesoSueltoGrueso, int pesoCompactadoGrueso, int aguaCemento, int propUnitaria, int propVol, int tmnNum, int asentamientoNum, int factorNum) {
-        this.resistencia = resistencia;
-        this.elemento = elemento;
-        this.pesoConcreto = pesoConcreto;
-        this.pesoSueltoFino = pesoSueltoFino;
-        this.pesoCompactadoFino = pesoCompactadoFino;
-        this.pesoSueltoGrueso = pesoSueltoGrueso;
-        this.pesoCompactadoGrueso = pesoCompactadoGrueso;
-        this.aguaCemento = aguaCemento;
-        this.propUnitaria = propUnitaria;
-        this.propVol = propVol;
-        this.tmnNum = tmnNum;
-        this.asentamientoNum = asentamientoNum;
-        this.factorNum = factorNum;
-    }
-
-    public Concreto(int id, double resistencia, int elemento, int pesoConcreto, int pesoSueltoFino, int pesoCompactadoFino, int pesoSueltoGrueso, int pesoCompactadoGrueso, int aguaCemento, int propUnitaria, int propVol, int tmnNum, int asentamientoNum, int factorNum) {
+    public Concreto(int id, String nombreProyecto, String resistencia, String asentamiento, String tmn,
+                    String relAC, String propUniCemento, String propUniFino, String propUniGrueso, String propUniAgua,
+                    String propVolFino, String propVolGrueso, String costalFino, String costalGrueso, String costalAgua) {
         this.id = id;
+        this.nombreProyecto = nombreProyecto;
         this.resistencia = resistencia;
-        this.elemento = elemento;
-        this.pesoConcreto = pesoConcreto;
-        this.pesoSueltoFino = pesoSueltoFino;
-        this.pesoCompactadoFino = pesoCompactadoFino;
-        this.pesoSueltoGrueso = pesoSueltoGrueso;
-        this.pesoCompactadoGrueso = pesoCompactadoGrueso;
-        this.aguaCemento = aguaCemento;
-        this.propUnitaria = propUnitaria;
-        this.propVol = propVol;
-        this.tmnNum = tmnNum;
-        this.asentamientoNum = asentamientoNum;
-        this.factorNum = factorNum;
+        this.asentamiento = asentamiento;
+        this.tmn = tmn;
+        this.relAC = relAC;
+        this.propUniCemento = propUniCemento;
+        this.propUniFino = propUniFino;
+        this.propUniGrueso = propUniGrueso;
+        this.propUniAgua = propUniAgua;
+        this.propVolFino = propVolFino;
+        this.propVolGrueso = propVolGrueso;
+        this.costalFino = costalFino;
+        this.costalGrueso = costalGrueso;
+        this.costalAgua = costalAgua;
     }
 
     public int getId() {
@@ -64,107 +48,115 @@ public class Concreto {
         this.id = id;
     }
 
-    public double getResistencia() {
+    public String getNombreProyecto() {
+        return nombreProyecto;
+    }
+
+    public void setNombreProyecto(String nombreProyecto) {
+        this.nombreProyecto = nombreProyecto;
+    }
+
+    public String getResistencia() {
         return resistencia;
     }
 
-    public void setResistencia(double resistencia) {
+    public void setResistencia(String resistencia) {
         this.resistencia = resistencia;
     }
 
-    public int getElemento() {
-        return elemento;
+    public String getAsentamiento() {
+        return asentamiento;
     }
 
-    public void setElemento(int elemento) {
-        this.elemento = elemento;
+    public void setAsentamiento(String asentamiento) {
+        this.asentamiento = asentamiento;
     }
 
-    public int getPesoConcreto() {
-        return pesoConcreto;
+    public String getTmn() {
+        return tmn;
     }
 
-    public void setPesoConcreto(int pesoConcreto) {
-        this.pesoConcreto = pesoConcreto;
+    public void setTmn(String tmn) {
+        this.tmn = tmn;
     }
 
-    public int getPesoSueltoFino() {
-        return pesoSueltoFino;
+    public String getRelAC() {
+        return relAC;
     }
 
-    public void setPesoSueltoFino(int pesoSueltoFino) {
-        this.pesoSueltoFino = pesoSueltoFino;
+    public void setRelAC(String relAC) {
+        this.relAC = relAC;
     }
 
-    public int getPesoCompactadoFino() {
-        return pesoCompactadoFino;
+    public String getPropUniCemento() {
+        return propUniCemento;
     }
 
-    public void setPesoCompactadoFino(int pesoCompactadoFino) {
-        this.pesoCompactadoFino = pesoCompactadoFino;
+    public void setPropUniCemento(String propUniCemento) {
+        this.propUniCemento = propUniCemento;
     }
 
-    public int getPesoSueltoGrueso() {
-        return pesoSueltoGrueso;
+    public String getPropUniFino() {
+        return propUniFino;
     }
 
-    public void setPesoSueltoGrueso(int pesoSueltoGrueso) {
-        this.pesoSueltoGrueso = pesoSueltoGrueso;
+    public void setPropUniFino(String propUniFino) {
+        this.propUniFino = propUniFino;
     }
 
-    public int getPesoCompactadoGrueso() {
-        return pesoCompactadoGrueso;
+    public String getPropUniGrueso() {
+        return propUniGrueso;
     }
 
-    public void setPesoCompactadoGrueso(int pesoCompactadoGrueso) {
-        this.pesoCompactadoGrueso = pesoCompactadoGrueso;
+    public void setPropUniGrueso(String propUniGrueso) {
+        this.propUniGrueso = propUniGrueso;
     }
 
-    public int getAguaCemento() {
-        return aguaCemento;
+    public String getPropUniAgua() {
+        return propUniAgua;
     }
 
-    public void setAguaCemento(int aguaCemento) {
-        this.aguaCemento = aguaCemento;
+    public void setPropUniAgua(String propUniAgua) {
+        this.propUniAgua = propUniAgua;
     }
 
-    public int getPropUnitaria() {
-        return propUnitaria;
+    public String getPropVolFino() {
+        return propVolFino;
     }
 
-    public void setPropUnitaria(int propUnitaria) {
-        this.propUnitaria = propUnitaria;
+    public void setPropVolFino(String propVolFino) {
+        this.propVolFino = propVolFino;
     }
 
-    public int getPropVol() {
-        return propVol;
+    public String getPropVolGrueso() {
+        return propVolGrueso;
     }
 
-    public void setPropVol(int propVol) {
-        this.propVol = propVol;
+    public void setPropVolGrueso(String propVolGrueso) {
+        this.propVolGrueso = propVolGrueso;
     }
 
-    public int getTmnNum() {
-        return tmnNum;
+    public String getCostalFino() {
+        return costalFino;
     }
 
-    public void setTmnNum(int tmnNum) {
-        this.tmnNum = tmnNum;
+    public void setCostalFino(String costalFino) {
+        this.costalFino = costalFino;
     }
 
-    public int getAsentamientoNum() {
-        return asentamientoNum;
+    public String getCostalGrueso() {
+        return costalGrueso;
     }
 
-    public void setAsentamientoNum(int asentamientoNum) {
-        this.asentamientoNum = asentamientoNum;
+    public void setCostalGrueso(String costalGrueso) {
+        this.costalGrueso = costalGrueso;
     }
 
-    public int getFactorNum() {
-        return factorNum;
+    public String getCostalAgua() {
+        return costalAgua;
     }
 
-    public void setFactorNum(int factorNum) {
-        this.factorNum = factorNum;
+    public void setCostalAgua(String costalAgua) {
+        this.costalAgua = costalAgua;
     }
 }

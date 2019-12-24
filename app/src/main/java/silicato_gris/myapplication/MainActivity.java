@@ -1,6 +1,7 @@
 package silicato_gris.myapplication;
 
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,10 @@ import android.support.annotation.NonNull;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import java.util.List;
+
+import silicato_gris.myapplication.apoyo.AdapterProporcion;
+import silicato_gris.myapplication.apoyo.Concreto;
 import silicato_gris.myapplication.fragmento.Cantidad;
 import silicato_gris.myapplication.fragmento.Ingreso;
 import silicato_gris.myapplication.fragmento.Proporcion;
@@ -48,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
 
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-           getSupportFragmentManager().beginTransaction().
-                    add(R.id.contenedor, new Ingreso()).commit();
+        getSupportFragmentManager().beginTransaction().
+                add(R.id.contenedor, new Ingreso()).commit();
 
     }
 
