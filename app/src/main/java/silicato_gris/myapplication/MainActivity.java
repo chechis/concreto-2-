@@ -2,9 +2,11 @@ package silicato_gris.myapplication;
 
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
 import android.view.MenuItem;
@@ -14,11 +16,13 @@ import java.util.List;
 
 import silicato_gris.myapplication.apoyo.AdapterProporcion;
 import silicato_gris.myapplication.apoyo.Concreto;
+import silicato_gris.myapplication.apoyo.almacenamiento.BaseDatos;
+import silicato_gris.myapplication.apoyo.almacenamiento.Servicio;
 import silicato_gris.myapplication.fragmento.Cantidad;
 import silicato_gris.myapplication.fragmento.Ingreso;
 import silicato_gris.myapplication.fragmento.Proporcion;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterProporcion.ProporcionListener{
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -58,4 +62,18 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void deleteProporcion(int position) {
+
+    }
+
+    @Override
+    public void editProporcion(int position) {
+        MainActivity.this.setTitle("Propocion");
+    }
+
+    @Override
+    public void verProporcion(int position) {
+
+    }
 }

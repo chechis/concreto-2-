@@ -80,7 +80,8 @@ public class Ingreso extends Fragment {
         prueba.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                leerBase();
+                //leerBase();
+                getActivity().setTitle("Propocion de la mezcla");
             }
         });
 

@@ -1,12 +1,14 @@
 package silicato_gris.myapplication.fragmento;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -22,6 +24,7 @@ import silicato_gris.myapplication.apoyo.AdapterProporcion;
 import silicato_gris.myapplication.apoyo.Concreto;
 import silicato_gris.myapplication.apoyo.almacenamiento.BaseDatos;
 import silicato_gris.myapplication.apoyo.almacenamiento.Estructura;
+import silicato_gris.myapplication.apoyo.almacenamiento.Servicio;
 
 public class Proporcion extends Fragment implements AdapterProporcion.ProporcionListener{
 
@@ -61,7 +64,6 @@ public class Proporcion extends Fragment implements AdapterProporcion.Proporcion
         recyclerView.setAdapter(adapterProporcion);
     }
     private void regresar(View view){
-        listaConcreto = new ArrayList<>();
         actualizarLista();
         llenandoAdapter(listaConcreto, view);
     }
@@ -101,17 +103,37 @@ public class Proporcion extends Fragment implements AdapterProporcion.Proporcion
 
     @Override
     public void deleteProporcion(int position) {
-        Toast.makeText(context, "hola", Toast.LENGTH_SHORT).show();
+        final int posicion = position;
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setMessage("¿Está seguro de que desea eliminar el diseño?")
+                .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        BaseDatos baseDatos = new BaseDatos(getContext());
+                        Concreto concreto = listaConcreto.get(posicion);
+                        Servicio servicio = new Servicio("resistencia", getContext());
+                        servicio.eliminarDato(concreto, baseDatos, getContext());
+                        actualizarLista();
+                        adapterProporcion.notifyDataSetChanged();
+
+                    }
+                }).setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        }).create().show();
 
     }
 
     @Override
     public void editProporcion(int position) {
-        Toast.makeText(context, "hola", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "hola", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void verProporcion(int position) {
-        Toast.makeText(context, "hola", Toast.LENGTH_SHORT).show();
+        getActivity().setTitle("Propocion");
     }
 }

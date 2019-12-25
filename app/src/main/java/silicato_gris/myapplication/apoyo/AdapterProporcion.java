@@ -1,5 +1,6 @@
 package silicato_gris.myapplication.apoyo;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import silicato_gris.myapplication.MainActivity;
 import silicato_gris.myapplication.R;
 
 public class AdapterProporcion extends RecyclerView.Adapter<AdapterProporcion.ConcretoHolder> {
@@ -91,7 +93,7 @@ public class AdapterProporcion extends RecyclerView.Adapter<AdapterProporcion.Co
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AdapterProporcion.ConcretoHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final AdapterProporcion.ConcretoHolder holder, final int position) {
         Concreto concreto = concretos.get(position);
 
         holder.txtNombreProyecto.setText("Proyecto:   "+ concreto.getNombreProyecto());
@@ -108,6 +110,7 @@ public class AdapterProporcion extends RecyclerView.Adapter<AdapterProporcion.Co
         holder.txtSacoArena.setText("Arena: "+concreto.getCostalFino());
         holder.txtSacoPiedrin.setText("Piedrin: "+concreto.getCostalGrueso());
         holder.txtSacoAgua.setText("Agua: "+concreto.getCostalAgua());
+
     }
 
     @Override

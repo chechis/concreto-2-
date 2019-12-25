@@ -88,7 +88,7 @@ public class Servicio {
         sq.execSQL("DELETE FROM "+ Estructura.EstructuraBase.TABLE_NAME+" WHERE ID=?;",
                 new Object[]{concreto.getId()});
 
-        Toast.makeText(activity, "Se ha eliminado la tarea", Toast.LENGTH_SHORT).show();
+        Toast.makeText(activity, "Se ha eliminado la mezcla", Toast.LENGTH_SHORT).show();
 
     }
 
