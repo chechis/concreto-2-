@@ -25,7 +25,6 @@ public class AdapterProporcion extends RecyclerView.Adapter<AdapterProporcion.Co
         void verProporcion (int position);
     }
 
-    public AdapterProporcion (List<Concreto> concretos) { this.concretos = concretos;}
 
     public class ConcretoHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
@@ -83,6 +82,8 @@ public class AdapterProporcion extends RecyclerView.Adapter<AdapterProporcion.Co
         }
     }
 
+    public AdapterProporcion (List<Concreto> concretos) { this.concretos = concretos;}
+
     @NonNull
     @Override
     public AdapterProporcion.ConcretoHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -93,7 +94,7 @@ public class AdapterProporcion extends RecyclerView.Adapter<AdapterProporcion.Co
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final AdapterProporcion.ConcretoHolder holder, final int position) {
+    public void onBindViewHolder(AdapterProporcion.ConcretoHolder holder,int position) {
         Concreto concreto = concretos.get(position);
 
         holder.txtNombreProyecto.setText("Proyecto:   "+ concreto.getNombreProyecto());
