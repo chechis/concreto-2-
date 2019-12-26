@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import silicato_gris.myapplication.R;
 import silicato_gris.myapplication.apoyo.ConcretoAlerta;
@@ -43,10 +44,12 @@ public class AlertaEditProp extends DialogFragment {
     private Spinner spnFactor, spnElemento, spnTMN;
 
     int tmn, asentamiento, factor;
+    private TextView txtFactores;
 
     private Calculos calculo = new Calculos();
 
-    private EditText editTextNombre, editTextResistencia;
+    private EditText editTextNombre, editTextResistencia, editTextVolumen, editTextPesoConcreto, editTextFinoSuelto,
+        editTextFinoCompactado, editTextGruesoSuelto, editTextGruesoCompactado;
 
     private Button btnCancelar, btnRegistrar;
     private double relacionAC, propUnitariaCemento, propUnitariaAgregados, propUnitariaArena, propUnitariaPiedrin,
@@ -64,6 +67,13 @@ public class AlertaEditProp extends DialogFragment {
 
         editTextNombre = (EditText) view.findViewById(R.id.editText_proyecto);
         editTextResistencia = (EditText) view.findViewById(R.id.editText_resistencia);
+        editTextVolumen = (EditText) view.findViewById(R.id.editText_volumen);
+        editTextPesoConcreto = (EditText) view.findViewById(R.id.editText_peso_concreto);
+        editTextFinoSuelto = (EditText) view.findViewById(R.id.editText_fino_suelto);
+        editTextFinoCompactado = (EditText) view.findViewById(R.id.editText_fino_compactado);
+        editTextGruesoSuelto = (EditText) view.findViewById(R.id.editText_grueso_suelto);
+        editTextGruesoCompactado = (EditText) view.findViewById(R.id.editText_grueso_compactado);
+        txtFactores = (TextView) view.findViewById(R.id.txt_factores);
 
         editNombreProyecto = (TextInputLayout) view.findViewById(R.id.edit_nom_proyecto);
         editResistencia = (TextInputLayout) view.findViewById(R.id.edit_resistencia);
@@ -97,7 +107,13 @@ public class AlertaEditProp extends DialogFragment {
     }
 
     //para agregar en la alerta
-    private String nombre, resistencia;
+    private int id;
+    private String nombre, resistencia, volumen, factorAlerta, pesoConcreto,
+            pesoFinoSuelto, pesoFinoCompactado, pesoGruesoSuelto, pesoGruesoCompactado;
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -107,10 +123,45 @@ public class AlertaEditProp extends DialogFragment {
         this.resistencia = resistencia;
     }
 
+    public void setVolumen(String volumen) {
+        this.volumen = volumen;
+    }
+
+    public void setFactorAlerta(String factorAlerta) {
+        this.factorAlerta = factorAlerta;
+    }
+
+    public void setPesoConcreto(String pesoConcreto) {
+        this.pesoConcreto = pesoConcreto;
+    }
+
+    public void setPesoFinoSuelto(String pesoFinoSuelto) {
+        this.pesoFinoSuelto = pesoFinoSuelto;
+    }
+
+    public void setPesoFinoCompactado(String pesoFinoCompactado) {
+        this.pesoFinoCompactado = pesoFinoCompactado;
+    }
+
+    public void setPesoGruesoSuelto(String pesoGruesoSuelto) {
+        this.pesoGruesoSuelto = pesoGruesoSuelto;
+    }
+
+    public void setPesoGruesoCompactado(String pesoGruesoCompactado) {
+        this.pesoGruesoCompactado = pesoGruesoCompactado;
+    }
 
     private void llenando(){
         editTextNombre.setText(this.nombre);
         editTextResistencia.setText(this.resistencia);
+        editTextVolumen.setText(this.volumen);
+        editTextPesoConcreto.setText(this.pesoConcreto);
+        editTextFinoSuelto.setText(this.pesoFinoSuelto);
+        editTextFinoCompactado.setText(this.pesoFinoCompactado);
+        editTextGruesoSuelto.setText(this.pesoGruesoSuelto);
+        editTextGruesoCompactado.setText(this.pesoGruesoCompactado);
+        txtFactores.setText(this.factorAlerta);
+
     }
     //aqui finaliza
 
@@ -230,7 +281,7 @@ public class AlertaEditProp extends DialogFragment {
                 costalPiedrin = calculo.costalPiedrin(pesoGruesoSuelto, propVolPiedrin);
                 costalAgua = calculo.costalAgua(relacionAC);
 
-                ConcretoAlerta concretoAlerta = new ConcretoAlerta(nombreProyecto, resistencia, factor, asentamiento, tmn, pesoConcreto, pesoFinoSuelto, pesoFinoCompac,
+                ConcretoAlerta concretoAlerta = new ConcretoAlerta(this.id, nombreProyecto, resistencia, factor, asentamiento, tmn, pesoConcreto, pesoFinoSuelto, pesoFinoCompac,
                         pesoGruesoSuelto,pesoGruesoCompac,relacionAC, propUnitariaCemento, propUnitariaAgregados,
                         propUnitariaArena, propUnitariaPiedrin, propUnitariaAgua, propVolArena, propVolPiedrin,
                         comprarCemento, comprarArena, comprarPiedrin, comprarAgua, costalArena, costalPiedrin, costalAgua);
