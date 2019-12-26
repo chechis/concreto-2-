@@ -23,6 +23,7 @@ import java.util.List;
 import silicato_gris.myapplication.alertas.AlertaIngreso;
 import silicato_gris.myapplication.apoyo.AdapterProporcion;
 import silicato_gris.myapplication.apoyo.Concreto;
+import silicato_gris.myapplication.apoyo.ConcretoAlerta;
 import silicato_gris.myapplication.apoyo.almacenamiento.BaseDatos;
 import silicato_gris.myapplication.apoyo.almacenamiento.Estructura;
 import silicato_gris.myapplication.apoyo.almacenamiento.Servicio;
@@ -53,13 +54,6 @@ public class Main2Activity extends AppCompatActivity implements AlertaIngreso.In
                 alertaIngreso.show(getSupportFragmentManager(), "alertaIngreso");
             }
         });
-    }
-
-    @Override
-    public void agregarMezcla(Concreto concreto) {
-
-        actualizarLista();
-        adapterProporcion.notifyDataSetChanged();
     }
 
     private void llenandoAdapter (List<Concreto> lista){
@@ -106,6 +100,23 @@ public class Main2Activity extends AppCompatActivity implements AlertaIngreso.In
             }while (cursor.moveToNext());
         }
         cursor.close();
+    }
+
+    @Override
+    public void agregarMezcla(ConcretoAlerta concreto) {
+
+        BaseDatos baseDatos = new BaseDatos(Main2Activity.this);
+        SQLiteDatabase sq = baseDatos.getWritableDatabase();
+        Servicio servicio = new Servicio("resistencia", Main2Activity.this);
+        servicio.guardarDatos(concreto.getNombreProyecto(), concreto.getResistencia(), concreto.getFactor(), concreto.getAsentamiento(), concreto.getTmn(),
+                concreto.getPesoConcreto(), concreto.getPesoFinoSuelto(), concreto.getPesofinoCompacto(),
+                concreto.getPesoGruesoSuelto(), concreto.getPesoGruesoComacto(), concreto.getRelAC(), concreto.getPropUniCemento(), concreto.getPropUniAgregados(),
+                concreto.getPropUniFino(), concreto.getPropUniGrueso(), concreto.getPropUniAgua(), concreto.getPropVolFino(), concreto.getPropVolGrueso(),
+                concreto.getComprarCemento(), concreto.getComprarArena(), concreto.getComprarPiedrin(), concreto.getComprarAgua(), concreto.getCostalFino(), concreto.getComprarPiedrin(),
+                concreto.getCostalAgua(), baseDatos, Main2Activity.this);
+        sq.close();
+        actualizarLista();
+        adapterProporcion.notifyDataSetChanged();
     }
 
     @Override

@@ -14,9 +14,11 @@ import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import silicato_gris.myapplication.R;
 import silicato_gris.myapplication.apoyo.Concreto;
+import silicato_gris.myapplication.apoyo.ConcretoAlerta;
 import silicato_gris.myapplication.apoyo.almacenamiento.BaseDatos;
 import silicato_gris.myapplication.apoyo.almacenamiento.Servicio;
 import silicato_gris.myapplication.apoyo.tabla_calculo.Calculos;
@@ -27,7 +29,7 @@ public class AlertaIngreso extends DialogFragment {
     private IngresoListener listener;
 
     public interface IngresoListener{
-        void agregarMezcla(Concreto concreto);
+        void agregarMezcla(ConcretoAlerta concreto);
     }
 
     @Override
@@ -218,16 +220,12 @@ public class AlertaIngreso extends DialogFragment {
                 costalPiedrin = calculo.costalPiedrin(pesoGruesoSuelto, propVolPiedrin);
                 costalAgua = calculo.costalAgua(relacionAC);
 
-                BaseDatos baseDatos = new BaseDatos(getContext());
-
-                SQLiteDatabase sq = baseDatos.getWritableDatabase();
-                Servicio servicio = new Servicio("resistencia", context);
-                servicio.guardarDatos(nombreProyecto, resistencia, factor, asentamiento, tmn, pesoConcreto, pesoFinoSuelto, pesoFinoCompac,
+                ConcretoAlerta concretoAlerta = new ConcretoAlerta(nombreProyecto, resistencia, factor, asentamiento, tmn, pesoConcreto, pesoFinoSuelto, pesoFinoCompac,
                         pesoGruesoSuelto,pesoGruesoCompac,relacionAC, propUnitariaCemento, propUnitariaAgregados,
                         propUnitariaArena, propUnitariaPiedrin, propUnitariaAgua, propVolArena, propVolPiedrin,
-                        comprarCemento, comprarArena, comprarPiedrin, comprarAgua, costalArena, costalPiedrin, costalAgua,
-                        baseDatos,context);
-                sq.close();
+                        comprarCemento, comprarArena, comprarPiedrin, comprarAgua, costalArena, costalPiedrin, costalAgua);
+
+                listener.agregarMezcla(concretoAlerta);
                 dismiss();
             }
 

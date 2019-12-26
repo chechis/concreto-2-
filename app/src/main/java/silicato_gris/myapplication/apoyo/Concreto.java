@@ -2,7 +2,6 @@ package silicato_gris.myapplication.apoyo;
 
 public class Concreto {
 
-
     private int id;
     private String nombreProyecto;
     private String resistencia;
