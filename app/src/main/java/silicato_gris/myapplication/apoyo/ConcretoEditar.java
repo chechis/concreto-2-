@@ -27,8 +27,9 @@ public class ConcretoEditar {
     private String costalFino;
     private String costalGrueso;
     private String costalAgua;
+    private String volumen;
 
-    public ConcretoEditar(int id, String nombreProyecto, String resistencia, String factor, String asentamiento, String tmn, String pesoConcreto, String pesoFinoSuelto, String pesofinoCompacto, String pesoGruesoSuelto, String pesoGruesoComacto, String relAC, String propUniCemento, String propUniAgregados, String propUniFino, String propUniGrueso, String propUniAgua, String propVolFino, String propVolGrueso, String comprarCemento, String comprarArena, String comprarPiedrin, String comprarAgua, String costalFino, String costalGrueso, String costalAgua) {
+    public ConcretoEditar(int id, String nombreProyecto, String resistencia, String factor, String asentamiento, String tmn, String pesoConcreto, String pesoFinoSuelto, String pesofinoCompacto, String pesoGruesoSuelto, String pesoGruesoComacto, String relAC, String propUniCemento, String propUniAgregados, String propUniFino, String propUniGrueso, String propUniAgua, String propVolFino, String propVolGrueso, String comprarCemento, String comprarArena, String comprarPiedrin, String comprarAgua, String costalFino, String costalGrueso, String costalAgua, String volumen) {
         this.id = id;
         this.nombreProyecto = nombreProyecto;
         this.resistencia = resistencia;
@@ -55,6 +56,7 @@ public class ConcretoEditar {
         this.costalFino = costalFino;
         this.costalGrueso = costalGrueso;
         this.costalAgua = costalAgua;
+        this.volumen = volumen;
     }
 
     public int getId() {
@@ -263,5 +265,13 @@ public class ConcretoEditar {
 
     public void setCostalAgua(String costalAgua) {
         this.costalAgua = costalAgua;
+    }
+
+    public String getVolumen() {
+        return volumen;
+    }
+
+    public void setVolumen(String volumen) {
+        this.volumen = volumen;
     }
 }

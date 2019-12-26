@@ -18,12 +18,12 @@ public class Servicio {
         this.context = context;
     }
 
-    public void guardarDatos (String nombreProyecto, double resistencia, int factor, int elemento, int tmn, int pesoConcreto,
+    public void guardarDatos (String nombreProyecto, double resistencia, int factor, int elemento, String tmn, int pesoConcreto,
                               int pesoSueltoFino, int pesoCompactadoFino, int pesoSueltoGrueso,
                               int pesoCompactadoGrueso, double relAc, double propUniCemento, double propUniAgregados,
                               double propUniArena, double propUniPiedrin, double propUniAgua, double propVolArena,
                               double propVolPiedrin, double comprarCemento, double comprarArena, double comprarPiedrin,
-                              double comprarAgua, double costalArena, double costalPiedrin, double costalAgua,
+                              double comprarAgua, double costalArena, double costalPiedrin, double costalAgua, double volumen,
                               BaseDatos baseDatos, Context activity){
 
         SQLiteDatabase sq = baseDatos.getWritableDatabase();
@@ -33,7 +33,7 @@ public class Servicio {
         content.put(Estructura.EstructuraBase.COLUMN_NAME_RESISTENCIA, String.valueOf(resistencia));
         content.put(Estructura.EstructuraBase.COLUMN_NAME_FACTOR, Integer.toString(factor));
         content.put(Estructura.EstructuraBase.COLUMN_NAME_ELEMENTO, Integer.toString(elemento));
-        content.put(Estructura.EstructuraBase.COLUMN_NAME_TMN, Integer.toString(tmn));
+        content.put(Estructura.EstructuraBase.COLUMN_NAME_TMN, tmn);
         content.put(Estructura.EstructuraBase.COLUMN_NAME_PESO_CONCRETO, Integer.toString(pesoConcreto));
         content.put(Estructura.EstructuraBase.COLUMN_NAME_PESO_SUELTO_FINO, Integer.toString(pesoSueltoFino));
         content.put(Estructura.EstructuraBase.COLUMN_NAME_PESO_COMPACTADO_FINO, Integer.toString(pesoCompactadoFino));
@@ -54,17 +54,18 @@ public class Servicio {
         content.put(Estructura.EstructuraBase.COLUMN_NAME_COSTAL_ARENA, String.valueOf(costalArena));
         content.put(Estructura.EstructuraBase.COLUMN_NAME_COSTAL_PIEDRIN, String.valueOf(costalPiedrin));
         content.put(Estructura.EstructuraBase.COLUMN_NAME_COSTAL_AGUA, String.valueOf(costalAgua));
+        content.put(Estructura.EstructuraBase.COLUMN_NAME_VOLUMEN, String.valueOf(volumen));
 
         sq.insert(Estructura.EstructuraBase.TABLE_NAME, null, content);
         Toast.makeText(activity, "Base de datos almacenada", Toast.LENGTH_SHORT).show();
     }
 
-    public void modificarDatos (int id, String nombreProyecto, double resistencia, int factor, int elemento, int tmn, int pesoConcreto,
+    public void modificarDatos (int id, String nombreProyecto, double resistencia, int factor, int elemento, String tmn, int pesoConcreto,
                                 int pesoSueltoFino, int pesoCompactadoFino, int pesoSueltoGrueso,
                                 int pesoCompactadoGrueso, double relAc, double propUniCemento, double propUniAgregados,
                                 double propUniArena, double propUniPiedrin, double propUniAgua, double propVolArena,
                                 double propVolPiedrin, double comprarCemento, double comprarArena, double comprarPiedrin,
-                                double comprarAgua, double costalArena, double costalPiedrin, double costalAgua,
+                                double comprarAgua, double costalArena, double costalPiedrin, double costalAgua, double volumen,
                                 BaseDatos baseDatos, Context activity){
 
         SQLiteDatabase sq = baseDatos.getWritableDatabase();
@@ -75,7 +76,7 @@ public class Servicio {
         content.put(Estructura.EstructuraBase.COLUMN_NAME_RESISTENCIA, String.valueOf(resistencia));
         content.put(Estructura.EstructuraBase.COLUMN_NAME_FACTOR, Integer.toString(factor));
         content.put(Estructura.EstructuraBase.COLUMN_NAME_ELEMENTO, Integer.toString(elemento));
-        content.put(Estructura.EstructuraBase.COLUMN_NAME_TMN, Integer.toString(tmn));
+        content.put(Estructura.EstructuraBase.COLUMN_NAME_TMN, tmn);
         content.put(Estructura.EstructuraBase.COLUMN_NAME_PESO_CONCRETO, Integer.toString(pesoConcreto));
         content.put(Estructura.EstructuraBase.COLUMN_NAME_PESO_SUELTO_FINO, Integer.toString(pesoSueltoFino));
         content.put(Estructura.EstructuraBase.COLUMN_NAME_PESO_COMPACTADO_FINO, Integer.toString(pesoCompactadoFino));
@@ -96,6 +97,7 @@ public class Servicio {
         content.put(Estructura.EstructuraBase.COLUMN_NAME_COSTAL_ARENA, String.valueOf(costalArena));
         content.put(Estructura.EstructuraBase.COLUMN_NAME_COSTAL_PIEDRIN, String.valueOf(costalPiedrin));
         content.put(Estructura.EstructuraBase.COLUMN_NAME_COSTAL_AGUA, String.valueOf(costalAgua));
+        content.put(Estructura.EstructuraBase.COLUMN_NAME_VOLUMEN, String.valueOf(volumen));
 
         sq.update(Estructura.EstructuraBase.TABLE_NAME, content, comparador, null);
         Toast.makeText(activity, "Base de datos modificada", Toast.LENGTH_SHORT).show();

@@ -35,6 +35,7 @@ public class Estructura {
         public static final String COLUMN_NAME_COSTAL_ARENA = "costal_arena";
         public static final String COLUMN_NAME_COSTAL_PIEDRIN = "costal_piedrin";
         public static final String COLUMN_NAME_COSTAL_AGUA = "costal_agua";
+        public static final String COLUMN_NAME_VOLUMEN = "volumen";
 
 
     }

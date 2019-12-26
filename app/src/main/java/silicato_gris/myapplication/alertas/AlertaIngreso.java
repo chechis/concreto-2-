@@ -217,7 +217,7 @@ public class AlertaIngreso extends DialogFragment {
                 ConcretoAlerta concretoAlerta = new ConcretoAlerta(nombreProyecto, resistencia, factor, asentamiento, tmn, pesoConcreto, pesoFinoSuelto, pesoFinoCompac,
                         pesoGruesoSuelto,pesoGruesoCompac,relacionAC, propUnitariaCemento, propUnitariaAgregados,
                         propUnitariaArena, propUnitariaPiedrin, propUnitariaAgua, propVolArena, propVolPiedrin,
-                        comprarCemento, comprarArena, comprarPiedrin, comprarAgua, costalArena, costalPiedrin, costalAgua);
+                        comprarCemento, comprarArena, comprarPiedrin, comprarAgua, costalArena, costalPiedrin, costalAgua, volumen);
 
                 listener.agregarMezcla(concretoAlerta);
                 dismiss();

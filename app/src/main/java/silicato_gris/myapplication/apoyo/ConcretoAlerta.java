@@ -27,8 +27,9 @@ public class ConcretoAlerta {
     private double costalFino;
     private double costalGrueso;
     private double costalAgua;
+    private double volConcreto;
 
-    public ConcretoAlerta(int id, String nombreProyecto, double resistencia, int factor, int asentamiento, int tmn, int pesoConcreto, int pesoFinoSuelto, int pesofinoCompacto, int pesoGruesoSuelto, int pesoGruesoComacto, double relAC, double propUniCemento, double propUniAgregados, double propUniFino, double propUniGrueso, double propUniAgua, double propVolFino, double propVolGrueso, double comprarCemento, double comprarArena, double comprarPiedrin, double comprarAgua, double costalFino, double costalGrueso, double costalAgua) {
+    public ConcretoAlerta(int id, String nombreProyecto, double resistencia, int factor, int asentamiento, int tmn, int pesoConcreto, int pesoFinoSuelto, int pesofinoCompacto, int pesoGruesoSuelto, int pesoGruesoComacto, double relAC, double propUniCemento, double propUniAgregados, double propUniFino, double propUniGrueso, double propUniAgua, double propVolFino, double propVolGrueso, double comprarCemento, double comprarArena, double comprarPiedrin, double comprarAgua, double costalFino, double costalGrueso, double costalAgua, double volConcreto) {
         this.id = id;
         this.nombreProyecto = nombreProyecto;
         this.resistencia = resistencia;
@@ -55,9 +56,10 @@ public class ConcretoAlerta {
         this.costalFino = costalFino;
         this.costalGrueso = costalGrueso;
         this.costalAgua = costalAgua;
+        this.volConcreto = volConcreto;
     }
 
-    public ConcretoAlerta(String nombreProyecto, double resistencia, int factor, int asentamiento, int tmn, int pesoConcreto, int pesoFinoSuelto, int pesofinoCompacto, int pesoGruesoSuelto, int pesoGruesoComacto, double relAC, double propUniCemento, double propUniAgregados, double propUniFino, double propUniGrueso, double propUniAgua, double propVolFino, double propVolGrueso, double comprarCemento, double comprarArena, double comprarPiedrin, double comprarAgua, double costalFino, double costalGrueso, double costalAgua) {
+    public ConcretoAlerta(String nombreProyecto, double resistencia, int factor, int asentamiento, int tmn, int pesoConcreto, int pesoFinoSuelto, int pesofinoCompacto, int pesoGruesoSuelto, int pesoGruesoComacto, double relAC, double propUniCemento, double propUniAgregados, double propUniFino, double propUniGrueso, double propUniAgua, double propVolFino, double propVolGrueso, double comprarCemento, double comprarArena, double comprarPiedrin, double comprarAgua, double costalFino, double costalGrueso, double costalAgua, double volConcreto) {
         this.nombreProyecto = nombreProyecto;
         this.resistencia = resistencia;
         this.factor = factor;
@@ -83,6 +85,7 @@ public class ConcretoAlerta {
         this.costalFino = costalFino;
         this.costalGrueso = costalGrueso;
         this.costalAgua = costalAgua;
+        this.volConcreto = volConcreto;
     }
 
     public int getId() {
@@ -291,5 +294,13 @@ public class ConcretoAlerta {
 
     public void setCostalAgua(double costalAgua) {
         this.costalAgua = costalAgua;
+    }
+
+    public double getVolConcreto() {
+        return volConcreto;
+    }
+
+    public void setVolConcreto(double volConcreto) {
+        this.volConcreto = volConcreto;
     }
 }

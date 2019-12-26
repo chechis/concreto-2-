@@ -143,11 +143,12 @@ public class Main2Activity extends AppCompatActivity implements AlertaIngreso.In
                 String costalArena = cursor.getString(cursor.getColumnIndex(Estructura.EstructuraBase.COLUMN_NAME_COSTAL_ARENA));
                 String costalPiedrin = cursor.getString(cursor.getColumnIndex(Estructura.EstructuraBase.COLUMN_NAME_COSTAL_PIEDRIN));
                 String costalAgua = cursor.getString(cursor.getColumnIndex(Estructura.EstructuraBase.COLUMN_NAME_COSTAL_AGUA));
+                String volumen = cursor.getString(cursor.getColumnIndex(Estructura.EstructuraBase.COLUMN_NAME_VOLUMEN));
 
                 listaEditar.add(new ConcretoEditar(id, nombreProyecto, resistencia, factor, asentamiento, tmn, pesoConcreto, pesoFinoSuelto, pesoFinoCompac,
                         pesoGruesoSuelto,pesoGruesoCompac,relacionAC, propUnitariaCemento, propUnitariaAgregados,
                         propUnitariaArena, propUnitariaPiedrin, propUnitariaAgua, propVolArena, propVolPiedrin,
-                        comprarCemento, comprarArena, comprarPiedrin, comprarAgua, costalArena, costalPiedrin, costalAgua));
+                        comprarCemento, comprarArena, comprarPiedrin, comprarAgua, costalArena, costalPiedrin, costalAgua, volumen));
             }while (cursor.moveToNext());
         }
         cursor.close();
@@ -165,7 +166,7 @@ public class Main2Activity extends AppCompatActivity implements AlertaIngreso.In
             asentamiento = 5;
         }
         int tmn = concreto.getTmn();
-        String tmnText;
+        String tmnText = "tmn";
         if (tmn == 0){
             tmnText = "3/8";
         }if (tmn == 1){
@@ -177,17 +178,19 @@ public class Main2Activity extends AppCompatActivity implements AlertaIngreso.In
         }if (tmn == 4){
             tmnText = "1 1/2";
         }
+
         BaseDatos baseDatos = new BaseDatos(Main2Activity.this);
         SQLiteDatabase sq = baseDatos.getWritableDatabase();
         Servicio servicio = new Servicio("resistencia", Main2Activity.this);
-        servicio.guardarDatos(concreto.getNombreProyecto(), concreto.getResistencia(), concreto.getFactor(), asentamiento, concreto.getTmn(),
+        servicio.guardarDatos(concreto.getNombreProyecto(), concreto.getResistencia(), concreto.getFactor(), asentamiento, tmnText,
                 concreto.getPesoConcreto(), concreto.getPesoFinoSuelto(), concreto.getPesofinoCompacto(),
                 concreto.getPesoGruesoSuelto(), concreto.getPesoGruesoComacto(), concreto.getRelAC(), concreto.getPropUniCemento(), concreto.getPropUniAgregados(),
                 concreto.getPropUniFino(), concreto.getPropUniGrueso(), concreto.getPropUniAgua(), concreto.getPropVolFino(), concreto.getPropVolGrueso(),
                 concreto.getComprarCemento(), concreto.getComprarArena(), concreto.getComprarPiedrin(), concreto.getComprarAgua(), concreto.getCostalFino(), concreto.getCostalGrueso(),
-                concreto.getCostalAgua(), baseDatos, Main2Activity.this);
+                concreto.getCostalAgua(), concreto.getVolConcreto(), baseDatos, Main2Activity.this);
         sq.close();
         actualizarLista();
+        actualizarEditar();
         adapterProporcion.notifyDataSetChanged();
     }
 
@@ -218,11 +221,12 @@ public class Main2Activity extends AppCompatActivity implements AlertaIngreso.In
 
     @Override
     public void editProporcion(int position) {
+        actualizarEditar();
         ConcretoEditar concreto = listaEditar.get(position);
         int id = concreto.getId();
         String proyecto = concreto.getNombreProyecto();
         String resistencia = concreto.getResistencia();
-        String volumen;
+        String volumen= concreto.getVolumen();
         String factor = concreto.getFactor();
         String asentamiento = concreto.getAsentamiento();
         String tmn = concreto.getTmn();
@@ -243,14 +247,13 @@ public class Main2Activity extends AppCompatActivity implements AlertaIngreso.In
         alertaEditProp.setPesoFinoCompactado(pesoFinoCompactado);
         alertaEditProp.setPesoGruesoSuelto(pesoGruesoSuelto);
         alertaEditProp.setPesoGruesoCompactado(pesoGruesoCompactado);
+        alertaEditProp.setVolumen(volumen);
         alertaEditProp.setFactorAlerta("Factor de seguridad:  "+ factor+"\n TMN:  "+tmn+"\n Asentamiento: "+asentamiento);
-        Toast.makeText(this, "Factor de seguridad:  "+ factor+"\n TMN:  "+tmn+"\n Asentamiento: "+asentamiento,
-                Toast.LENGTH_LONG).show();
-
     }
 
     @Override
     public void verProporcion(int position) {
+
 
     }
 
@@ -266,16 +269,30 @@ public class Main2Activity extends AppCompatActivity implements AlertaIngreso.In
         }if (asentamiento ==0){
             asentamiento = 5;
         }
+
+        int tmn = concreto.getTmn();
+        String tmnText = "tmn";
+        if (tmn == 0){
+            tmnText = "3/8";
+        }if (tmn == 1){
+            tmnText = "1/2";
+        }if (tmn == 2){
+            tmnText = "3/4";
+        }if (tmn == 3){
+            tmnText = "1";
+        }if (tmn == 4){
+            tmnText = "1 1/2";
+        }
         BaseDatos baseDatos = new BaseDatos(Main2Activity.this);
         SQLiteDatabase sq = baseDatos.getWritableDatabase();
         Servicio servicio = new Servicio("resistencia", Main2Activity.this);
 
-        servicio.modificarDatos(concreto.getId(),concreto.getNombreProyecto(), concreto.getResistencia(), concreto.getFactor(), asentamiento, concreto.getTmn(),
+        servicio.modificarDatos(concreto.getId(),concreto.getNombreProyecto(), concreto.getResistencia(), concreto.getFactor(), asentamiento, tmnText,
                 concreto.getPesoConcreto(), concreto.getPesoFinoSuelto(), concreto.getPesofinoCompacto(),
                 concreto.getPesoGruesoSuelto(), concreto.getPesoGruesoComacto(), concreto.getRelAC(), concreto.getPropUniCemento(), concreto.getPropUniAgregados(),
                 concreto.getPropUniFino(), concreto.getPropUniGrueso(), concreto.getPropUniAgua(), concreto.getPropVolFino(), concreto.getPropVolGrueso(),
                 concreto.getComprarCemento(), concreto.getComprarArena(), concreto.getComprarPiedrin(), concreto.getComprarAgua(), concreto.getCostalFino(), concreto.getCostalGrueso(),
-                concreto.getCostalAgua(), baseDatos, Main2Activity.this);
+                concreto.getCostalAgua(), concreto.getVolConcreto(), baseDatos, Main2Activity.this);
         //sq.close();
         actualizarLista();
         adapterProporcion.notifyDataSetChanged();
