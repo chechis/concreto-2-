@@ -13,6 +13,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -47,7 +48,7 @@ public class AlertaIngreso extends DialogFragment {
     private Spinner spnFactor, spnElemento, spnTMN;
 
     int tmn, asentamiento, factor;
-
+    private Button btnCancelar, btnRegistrar;
     private Calculos calculo = new Calculos();
 
 
@@ -79,28 +80,21 @@ public class AlertaIngreso extends DialogFragment {
         spnElemento = (Spinner) view.findViewById(R.id.spinner_elemento);
         spnTMN = (Spinner) view.findViewById(R.id.spinner_tmn);
 
-
-        FloatingActionButton floatingActionButton = (FloatingActionButton) view.findViewById(R.id.ingreso_btn_flotante);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                agregarMezcla();
-
-            }
-        });
-
-        FloatingActionButton prueba =  (FloatingActionButton) view.findViewById(R.id.ingreso_btn);
-        prueba.setOnClickListener(new View.OnClickListener() {
+        btnCancelar = (Button) view.findViewById(R.id.btn_ingreso_cancelar);
+        btnCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dismiss();
             }
         });
-
-
+        btnRegistrar = (Button) view.findViewById(R.id.btn_ingreso_registrar);
+        btnRegistrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                agregarMezcla();
+            }
+        });
         return builder.create();
-
     }
 
 

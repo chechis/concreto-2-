@@ -20,6 +20,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import silicato_gris.myapplication.alertas.AlertaEditProp;
 import silicato_gris.myapplication.alertas.AlertaIngreso;
 import silicato_gris.myapplication.apoyo.AdapterProporcion;
 import silicato_gris.myapplication.apoyo.Concreto;
@@ -30,7 +31,7 @@ import silicato_gris.myapplication.apoyo.almacenamiento.Servicio;
 import silicato_gris.myapplication.apoyo.tabla_calculo.Calculos;
 
 public class Main2Activity extends AppCompatActivity implements AlertaIngreso.IngresoListener,
-                                                        AdapterProporcion.ProporcionListener{
+                                                        AdapterProporcion.ProporcionListener, AlertaEditProp.EditarListener{
 
     AdapterProporcion adapterProporcion;
     RecyclerView recyclerView;
@@ -104,11 +105,19 @@ public class Main2Activity extends AppCompatActivity implements AlertaIngreso.In
 
     @Override
     public void agregarMezcla(ConcretoAlerta concreto) {
-
+        int asentamiento = concreto.getAsentamiento();
+        if (asentamiento== 2){
+            asentamiento = 12;
+        }
+        if (asentamiento == 1) {
+            asentamiento =8;
+        }if (asentamiento ==0){
+            asentamiento = 5;
+        }
         BaseDatos baseDatos = new BaseDatos(Main2Activity.this);
         SQLiteDatabase sq = baseDatos.getWritableDatabase();
         Servicio servicio = new Servicio("resistencia", Main2Activity.this);
-        servicio.guardarDatos(concreto.getNombreProyecto(), concreto.getResistencia(), concreto.getFactor(), concreto.getAsentamiento(), concreto.getTmn(),
+        servicio.guardarDatos(concreto.getNombreProyecto(), concreto.getResistencia(), concreto.getFactor(), asentamiento, concreto.getTmn(),
                 concreto.getPesoConcreto(), concreto.getPesoFinoSuelto(), concreto.getPesofinoCompacto(),
                 concreto.getPesoGruesoSuelto(), concreto.getPesoGruesoComacto(), concreto.getRelAC(), concreto.getPropUniCemento(), concreto.getPropUniAgregados(),
                 concreto.getPropUniFino(), concreto.getPropUniGrueso(), concreto.getPropUniAgua(), concreto.getPropVolFino(), concreto.getPropVolGrueso(),
@@ -146,11 +155,25 @@ public class Main2Activity extends AppCompatActivity implements AlertaIngreso.In
 
     @Override
     public void editProporcion(int position) {
+        Concreto concreto = listaConcreto.get(position);
+        String proyecto = concreto.getNombreProyecto();
+        String resistencia = concreto.getResistencia();
+
+        AlertaEditProp alertaEditProp = new AlertaEditProp();
+        alertaEditProp.show(getSupportFragmentManager(), "Editar mezcla");
+
+        alertaEditProp.setNombre(proyecto);
+        alertaEditProp.setResistencia(resistencia);
 
     }
 
     @Override
     public void verProporcion(int position) {
+
+    }
+
+    @Override
+    public void editarMezcla(ConcretoAlerta concreto) {
 
     }
 }
