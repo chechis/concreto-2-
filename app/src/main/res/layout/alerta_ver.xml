@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="15dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/txt_ver_nombre_proyecto"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textAlignment="center"
+        android:text="Nombre del proyecto"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/txt_ver_resistencia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Resistencia"
+        android:padding="5dp"
+        android:textStyle="bold|italic"
+        />
+    <TextView
+        android:id="@+id/txt_ver_factor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Factor"
+        android:padding="5dp"
+        android:textStyle="bold|italic"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/txt_ver_cantidad"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textAlignment="center"
+        android:text="Cantidad de material"
+        android:textSize="20sp"/>
+    <TextView
+        android:id="@+id/txt_ver_sacos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="cemento"
+        android:padding="5dp"
+        android:textStyle="bold|italic"
+        />
+    <TextView
+        android:id="@+id/txt_ver_arena"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="arena"
+        android:padding="5dp"
+        android:textStyle="bold|italic"
+        />
+    <TextView
+        android:id="@+id/txt_ver_piedrin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="piedrin"
+        android:padding="5dp"
+        android:textStyle="bold|italic"
+        />
+    <TextView
+        android:id="@+id/txt_ver_agua"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="agua"
+        android:padding="5dp"
+        android:textStyle="bold|italic"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/btn_ver_cancelar"
+        android:text="CANCELAR"
+        style="@style/Widget.AppCompat.Button.Borderless"/>
+
+</LinearLayout>

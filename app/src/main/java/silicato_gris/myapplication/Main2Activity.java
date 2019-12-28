@@ -22,6 +22,7 @@ import java.util.List;
 
 import silicato_gris.myapplication.alertas.AlertaEditProp;
 import silicato_gris.myapplication.alertas.AlertaIngreso;
+import silicato_gris.myapplication.alertas.AlertaVer;
 import silicato_gris.myapplication.apoyo.AdapterProporcion;
 import silicato_gris.myapplication.apoyo.Concreto;
 import silicato_gris.myapplication.apoyo.ConcretoAlerta;
@@ -221,7 +222,7 @@ public class Main2Activity extends AppCompatActivity implements AlertaIngreso.In
 
     @Override
     public void editProporcion(int position) {
-        actualizarEditar();
+       // actualizarEditar();
         ConcretoEditar concreto = listaEditar.get(position);
         int id = concreto.getId();
         String proyecto = concreto.getNombreProyecto();
@@ -253,6 +254,27 @@ public class Main2Activity extends AppCompatActivity implements AlertaIngreso.In
 
     @Override
     public void verProporcion(int position) {
+        ConcretoEditar concreto = listaEditar.get(position);
+        String proyecto = concreto.getNombreProyecto();
+        String resistencia = concreto.getResistencia();
+        String factor = concreto.getFactor();
+        String volumen= concreto.getVolumen();
+        String cemento = concreto.getComprarCemento();
+        String arena = concreto.getComprarArena();
+        String piedrin = concreto.getComprarPiedrin();
+        String agua = concreto.getComprarAgua();
+
+        AlertaVer alertaVer = new AlertaVer();
+        alertaVer.show(getSupportFragmentManager(), "ver mezcla");
+
+        alertaVer.setNombre(proyecto);
+        alertaVer.setResistenciaAlerta(resistencia);
+        alertaVer.setFactorSeguridad(factor);
+        alertaVer.setCantidadMat(volumen);
+        alertaVer.setCantidadSaco(cemento);
+        alertaVer.setCantidadFino(arena);
+        alertaVer.setCantidadGrueso(piedrin);
+        alertaVer.setCantidadAguua(agua);
 
 
     }
@@ -295,6 +317,7 @@ public class Main2Activity extends AppCompatActivity implements AlertaIngreso.In
                 concreto.getCostalAgua(), concreto.getVolConcreto(), baseDatos, Main2Activity.this);
         //sq.close();
         actualizarLista();
+        actualizarEditar();
         adapterProporcion.notifyDataSetChanged();
 
     }
