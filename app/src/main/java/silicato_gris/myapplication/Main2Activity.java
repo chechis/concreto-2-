@@ -17,6 +17,9 @@ import android.view.View;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.MobileAds;
+
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,6 +48,7 @@ public class Main2Activity extends AppCompatActivity implements AlertaIngreso.In
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -59,6 +63,9 @@ public class Main2Activity extends AppCompatActivity implements AlertaIngreso.In
                 alertaIngreso.show(getSupportFragmentManager(), "alertaIngreso");
             }
         });
+
+        MobileAds.initialize(this);
+
     }
 
     private void llenandoAdapter (List<Concreto> lista){
