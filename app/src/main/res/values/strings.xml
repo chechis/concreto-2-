@@ -28,5 +28,8 @@
         <item>1  1/2"</item>
     </string-array>
     <string name="title_activity_main">Main2Activity</string>
+    <string name="intersticial">ca-app-pub-4529798687453598/3926005595</string>
+    <string name="banner">ca-app-pub-4529798687453598/5099486463</string>
+    <string name="id_anuncios">ca-app-pub-4529798687453598~1627145317</string>
 
 </resources>
