@@ -47,9 +47,10 @@ public class Main2Activity extends AppCompatActivity implements AlertaIngreso.In
     RecyclerView recyclerView;
     private  List<Concreto> listaConcreto = new ArrayList<>();
     private  List<ConcretoEditar> listaEditar = new ArrayList<>();
-    private AdView mAdView;
+
+    /*private AdView mAdView;
     private InterstitialAd mInterstitialAd;
-    AdRequest adRequest;
+    AdRequest adRequest;*/
 
 
     @Override
@@ -74,7 +75,7 @@ public class Main2Activity extends AppCompatActivity implements AlertaIngreso.In
 
         //banner
 
-
+/*
         MobileAds.initialize(this, getString(R.string.id_anuncios));
         mAdView = findViewById(R.id.adView);
         adRequest = new AdRequest.Builder().build();
@@ -112,12 +113,12 @@ public class Main2Activity extends AppCompatActivity implements AlertaIngreso.In
                 // Code to be executed when the user is about to return
                 // to the app after tapping on an ad.
             }
-        });
+        });*/
 
 
         //interstitial
 
-
+/*
         mInterstitialAd = new InterstitialAd(this);
         mInterstitialAd.setAdUnitId(getString(R.string.intersticial));
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
@@ -152,7 +153,7 @@ public class Main2Activity extends AppCompatActivity implements AlertaIngreso.In
             public void onAdClosed() {
                 // Code to be executed when the interstitial ad is closed.
             }
-        });
+        });*/
 
 
     }
@@ -292,12 +293,12 @@ public class Main2Activity extends AppCompatActivity implements AlertaIngreso.In
         actualizarLista();
         actualizarEditar();
         adapterProporcion.notifyDataSetChanged();
-        if (mInterstitialAd.isLoaded()&& mInterstitialAd.isLoaded()) {
+        /*if (mInterstitialAd.isLoaded()&& mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
         } else {
             cargarAnuncio();
 
-        }
+        }*/
     }
 
     @Override
@@ -425,17 +426,17 @@ public class Main2Activity extends AppCompatActivity implements AlertaIngreso.In
         actualizarEditar();
         adapterProporcion.notifyDataSetChanged();
 
-        if (mInterstitialAd.isLoaded()&& mInterstitialAd.isLoaded()) {
+        /*if (mInterstitialAd.isLoaded()&& mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
         } else {
             cargarAnuncio();
 
-        }
+        }*/
 
     }
-    private void cargarAnuncio(){
+    /*private void cargarAnuncio(){
         adRequest = new AdRequest.Builder().build();
         mInterstitialAd.loadAd(adRequest);
         mInterstitialAd.show();
-    }
+    }*/
 }
