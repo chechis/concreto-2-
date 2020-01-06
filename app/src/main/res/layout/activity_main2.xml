@@ -15,7 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="Diseño de Mezcla de Cocnreto"
+            app:title="Diseño de Mezcla de Concreto"
             app:subtitle="Silicato Gris"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />

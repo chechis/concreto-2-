@@ -72,7 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="3"
-                android:text="Proporcion volumetrica"
+                android:text="Proporción volumetrica"
                 android:layout_marginBottom="5dp"
                 android:textStyle="bold|italic"
                 />
@@ -129,7 +129,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="4"
-                android:text="Proporcion Unitaria (kg/m^3)"
+                android:text="Proporción Unitaria (kg/m^3)"
                 android:padding="5dp"
                 android:textStyle="bold|italic"
                 />
@@ -187,7 +187,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="4"
-                android:text="Proporcion para un saco de cemento (kg)"
+                android:text="Proporción para un saco de cemento (kg)"
                 android:padding="5dp"
                 android:textStyle="bold|italic"
                 />

@@ -73,6 +73,8 @@ public class Main2Activity extends AppCompatActivity implements AlertaIngreso.In
         });
 
         //banner
+
+
         MobileAds.initialize(this, getString(R.string.id_anuncios));
         mAdView = findViewById(R.id.adView);
         adRequest = new AdRequest.Builder().build();
@@ -111,7 +113,11 @@ public class Main2Activity extends AppCompatActivity implements AlertaIngreso.In
                 // to the app after tapping on an ad.
             }
         });
+
+
         //interstitial
+
+
         mInterstitialAd = new InterstitialAd(this);
         mInterstitialAd.setAdUnitId(getString(R.string.intersticial));
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
@@ -147,7 +153,12 @@ public class Main2Activity extends AppCompatActivity implements AlertaIngreso.In
                 // Code to be executed when the interstitial ad is closed.
             }
         });
+
+
     }
+
+
+    //fin anuncios
 
     private void llenandoAdapter (List<Concreto> lista){
         adapterProporcion = new AdapterProporcion(lista);
