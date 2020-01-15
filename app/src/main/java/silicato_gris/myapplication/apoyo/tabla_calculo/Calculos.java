@@ -12,7 +12,7 @@ public class Calculos {
 
         return redondeo (resistencia, 3);
     }
-    double sacoCemento = 42.2;
+    double sacoCemento = 42.5;
 
     //proporcion unitaria
     public double cantidadCemento (int cantidadAgua, double relAC){

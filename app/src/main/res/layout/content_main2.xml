@@ -15,7 +15,7 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         android:id="@+id/recycler_proporcion"/>
-<!--
+
    <com.google.android.gms.ads.AdView
         xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:id="@+id/adView"
@@ -26,7 +26,7 @@
        android:layout_alignParentLeft="true"
         ads:adSize="BANNER"
         ads:adUnitId="@string/banner">
-    </com.google.android.gms.ads.AdView>-->
+    </com.google.android.gms.ads.AdView>
 
 
 </RelativeLayout>
