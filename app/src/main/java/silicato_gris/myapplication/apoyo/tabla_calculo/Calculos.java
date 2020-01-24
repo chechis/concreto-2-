@@ -16,7 +16,7 @@ public class Calculos {
 
     //proporcion unitaria
     public double cantidadCemento (int cantidadAgua, double relAC){
-        double cemento = cantidadAgua/relAC;,
+        double cemento = cantidadAgua/relAC;
         return redondeo(cemento, 2);
     }
     public double cantidadAgregados (int cantidadAgua, double cantidadCemento, int pesoConcreto){
