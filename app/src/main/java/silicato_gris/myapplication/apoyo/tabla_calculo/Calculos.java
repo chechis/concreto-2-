@@ -12,6 +12,15 @@ public class Calculos {
 
         return redondeo (resistencia, 3);
     }
+
+    public double pesoConcreto(double cemento, double arena, double piedrin){
+
+        double concreto = (cemento*0.13+arena*0.32+piedrin*0.43+0.09)*1000;
+
+        return redondeo(concreto,1);
+    }
+
+
     double sacoCemento = 42.5;
 
     //proporcion unitaria

@@ -14,6 +14,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -30,6 +32,7 @@ import java.util.List;
 
 import silicato_gris.myapplication.alertas.AlertaEditProp;
 import silicato_gris.myapplication.alertas.AlertaIngreso;
+import silicato_gris.myapplication.alertas.AlertaPUC;
 import silicato_gris.myapplication.alertas.AlertaVer;
 import silicato_gris.myapplication.apoyo.AdapterProporcion;
 import silicato_gris.myapplication.apoyo.Concreto;
@@ -436,5 +439,25 @@ public class Main2Activity extends AppCompatActivity implements AlertaIngreso.In
         adRequest = new AdRequest.Builder().build();
         mInterstitialAd.loadAd(adRequest);
         mInterstitialAd.show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id==R.id.menu_puc){
+            AlertaPUC alertaPUC = new AlertaPUC();
+            alertaPUC.show(getSupportFragmentManager(), "alertaPUC");
+
+        }
+
+
+        return super.onOptionsItemSelected(item);
     }
 }

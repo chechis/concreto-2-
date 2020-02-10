@@ -39,7 +39,7 @@ public class BaseDatos extends SQLiteOpenHelper {
                     + Estructura.EstructuraBase.COLUMN_NAME_COSTAL_AGUA + tipo + coma
                     + Estructura.EstructuraBase.COLUMN_NAME_VOLUMEN + tipo + " )";
 
-    public static final int DATABASE_VERSION = 7;
+    public static final int DATABASE_VERSION = 8;
     public static final String DATABASE_NAME = "Concreto.sqLite";
 
     private static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + Estructura.EstructuraBase.TABLE_NAME;
