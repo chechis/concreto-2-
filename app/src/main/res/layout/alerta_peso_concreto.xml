@@ -45,7 +45,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/editText_puc_cemento"
                     android:hint="Peso específico"
-                    android:inputType="text" />
+                    android:inputType="numberDecimal" />
             </android.support.design.widget.TextInputLayout>
 
             <TextView
