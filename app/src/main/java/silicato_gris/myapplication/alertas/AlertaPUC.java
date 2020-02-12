@@ -87,7 +87,7 @@ public class AlertaPUC extends DialogFragment {
                 Calculos calculos = new Calculos();
                 String pesoConcreto = String.valueOf(calculos.pesoConcreto(cemento, arena, piedrin));
 
-                textView.setText("Peso Unitario Concreto  "+pesoConcreto);
+                textView.setText("Peso Unitario Concreto  "+pesoConcreto+" kg/m^3");
             }
 
         }
